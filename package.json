@@ -1,0 +1,19 @@
+{
+  "name": "ktech-website",
+  "version": "1.0.0",
+  "description": "KTECH Home Appliances - Responsive Website & Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ktech",
+    "appliances",
+    "kitchenware",
+    "website"
+  ],
+  "author": "KTECH",
+  "license": "ISC"
+}
+

@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "count": 3,
+  "blogs": [
+    {
+      "id": "blog-01",
+      "title": "How to Choose the Right Pressure Cooker for Your Home",
+      "slug": "how-to-choose-the-right-pressure-cooker-for-your-home",
+      "category": "BUYING GUIDE",
+      "excerpt": "Everything you need to know about Tri-Ply vs Hard Anodized pressure cookers, inner vs outer lids, and safety features for daily family cooking.",
+      "content": "Pressure cookers are the workhorses of every Indian kitchen. When choosing between stainless steel and aluminium, consider that Tri-Ply stainless steel provides uniform base heating without hotspot burning while resisting food acids. Inner lid cookers offer an additional layer of mechanical safety under pressure.",
+      "image": "/images/07-pressure-cooker.jpg",
+      "author": "KTECH Kitchen Specialists",
+      "read_time": "4 min read",
+      "status": "published",
+      "published_at": "2026-11-08 15:05:30",
+      "created_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "blog-02",
+      "title": "Best Kitchenware Gift Ideas for Corporate & Bulk Gifting",
+      "slug": "best-kitchenware-gift-ideas-for-corporate-and-bulk-gifting",
+      "category": "GIFTING IDEAS",
+      "excerpt": "Discover why high-utility kitchen appliances, Tri-ply pans, and insulated casseroles leave a permanent positive impression with employees and business partners.",
+      "content": "Unlike perishable food boxes or generic diaries, premium cookware and kitchen appliances are used daily for decades. Gifting high-grade stainless steel items signals enduring appreciation and utility value for clients and teams.",
+      "image": "/images/08-corporate-gifting-boxes.jpg",
+      "author": "KTECH Corporate Gifting Division",
+      "read_time": "5 min read",
+      "status": "published",
+      "published_at": "2026-11-08 15:05:30",
+      "created_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "blog-03",
+      "title": "Easy Care Tips to Keep Your LPG Gas Stove Long Lasting",
+      "slug": "easy-care-tips-to-keep-your-lpg-gas-stove-long-lasting",
+      "category": "PRODUCT GUIDE",
+      "excerpt": "Simple maintenance steps, burner cleaning methods, and glass care habits to maintain peak thermal efficiency and ensure kitchen safety.",
+      "content": "Routine cleaning of brass burner ports ensures a clean blue flame and saves up to 15% LPG gas. Always allow toughened glass stovetops to cool to room temperature before wiping with a damp microfiber cloth to avoid thermal stress.",
+      "image": "/images/03-lpg-gas-stove.jpg",
+      "author": "KTECH Technical Service Team",
+      "read_time": "3 min read",
+      "status": "published",
+      "published_at": "2026-11-08 15:05:30",
+      "created_at": "2026-11-08 15:05:30"
+    }
+  ]
+}

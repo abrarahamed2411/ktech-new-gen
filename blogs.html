@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore expert kitchenware buying guides, pressure cooker advice, and gas stove care tips from KTECH Home Appliances.">
+  <title>Blogs & Product Guides | KTECH Home Appliances</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <style>
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+    .blog-card { background: #fff; border-radius: 20px; border: 1px solid var(--color-border); overflow: hidden; box-shadow: var(--shadow-card); display: flex; flex-direction: column; transition: transform .2s ease; }
+    .blog-card:hover { transform: translateY(-4px); }
+    .blog-card-img { width: 100%; height: 210px; object-fit: cover; }
+    .blog-card-body { padding: 24px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; }
+    .blog-badge { display: inline-block; font-size: 11px; font-weight: 800; color: var(--color-primary); background: #e8faf3; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+  </style>
+</head>
+<body>
+  <div class="announcement">Quality kitchen solutions for everyday living · Retail & bulk orders welcome</div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="KTECH Home Appliances">
+        <img src="/assets/ktech-logo.webp" alt="KTECH Home Appliances" class="logo-img" style="height:32px!important;max-height:32px!important;width:auto!important;max-width:110px!important;object-fit:contain!important;display:block!important;" height="32">
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+        <a href="/about-us">About Us</a>
+        <a href="/products">Products</a>
+        <a href="/bulk-solutions">Bulk Solutions</a>
+        <a href="/our-stores">Our Stores</a>
+        <a class="active" href="/blogs">Blogs</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-outline btn-small" href="/request-quote">Request Catalogue</a>
+        <a class="btn btn-primary btn-small" href="/request-quote">Get Bulk Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero section-waves">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/">Home</a>
+          <span class="separator">›</span>
+          <span class="current">Blogs & Guides</span>
+        </div>
+        <span class="eyebrow">✦ KITCHEN INSIGHTS & EXPERT TIPS</span>
+        <h1>Blogs & <em>Product Guides</em></h1>
+        <p>Helpful advice, kitchen appliance maintenance tips, and practical gifting inspiration to make everyday living easier.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid" id="blogs-container">
+          <div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--color-muted);">
+            Loading articles from database...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="section section-waves" style="background:#f2fffa; border-top:1px solid var(--color-border); padding:65px 0;">
+      <div class="container centered">
+        <span class="eyebrow">HAVE QUESTIONS ABOUT OUR PRODUCTS?</span>
+        <h2 style="font-size:34px; margin:14px 0;">Speak with Our <em>Culinary Specialists</em></h2>
+        <p style="max-width:580px; margin:0 auto 24px;">Need guidance selecting the right mixer wattage, gas stove burner setup, or pressure cooker capacity? Our team is happy to help.</p>
+        <div class="button-row" style="justify-content:center;">
+          <a href="/contact" class="btn btn-primary">Contact Kitchen Specialists ↗</a>
+          <a href="/products" class="btn btn-outline">Explore Products ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/script.js"></script>
+  <script>
+    // Load blogs dynamically from SQLite
+    async function loadBlogs() {
+      const container = document.getElementById('blogs-container');
+      try {
+        const res = await fetch('/api/blogs');
+        const data = await res.json();
+        if (data.success && data.blogs) {
+          container.innerHTML = data.blogs.map(b => `
+            <article class="blog-card">
+              <img src="${window.normalizeImg ? window.normalizeImg(b.image) : (b.image.startsWith('/') ? b.image : '/' + b.image)}" alt="${b.title}" class="blog-card-img">
+              <div class="blog-card-body">
+                <div>
+                  <span class="blog-badge">${b.category}</span>
+                  <h3 style="font-size:18px; line-height:1.35; margin:0 0 10px; color:var(--color-heading);">${b.title}</h3>
+                  <p style="font-size:13.5px; color:var(--color-muted); line-height:1.6; margin:0 0 15px;">${b.excerpt}</p>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid #f0f7f4; padding-top:14px; font-size:12.5px; color:var(--color-muted);">
+                  <span>⏱ ${b.read_time}</span>
+                  <a href="/contact" onclick="event.preventDefault(); selectProductForEnquiry('Blog Inquiry: ${b.title}');" style="color:var(--color-primary); font-weight:700;">Enquire More ↗</a>
+                </div>
+              </div>
+            </article>
+          `).join('');
+        }
+      } catch (err) {
+        console.warn('Blogs API error:', err);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadBlogs);
+  </script>
+</body>
+</html>
+

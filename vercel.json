@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "ktech-new-gen",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/api/categories", "destination": "/api/categories.json" },
+    { "source": "/api/products", "destination": "/api/products.json" },
+    { "source": "/api/stores", "destination": "/api/stores.json" },
+    { "source": "/api/blogs", "destination": "/api/blogs.json" },
+    { "source": "/api/(.*)", "destination": "/server.js" },
+    { "source": "/about-us", "destination": "/about.html" },
+    { "source": "/bulk-solutions", "destination": "/bulk.html" },
+    { "source": "/our-stores", "destination": "/stores.html" },
+    { "source": "/request-quote", "destination": "/quote.html" },
+    { "source": "/privacy-policy", "destination": "/privacy.html" },
+    { "source": "/terms-of-use", "destination": "/terms.html" },
+    { "source": "/products/:slug", "destination": "/product-detail.html" }
+  ]
+}

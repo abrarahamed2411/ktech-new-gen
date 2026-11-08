@@ -1,0 +1,66 @@
+{
+  "success": true,
+  "count": 4,
+  "stores": [
+    {
+      "id": "store-theni",
+      "name": "KTECH – Theni New Home Appliances",
+      "slug": "theni-new-home",
+      "city": "Theni",
+      "address": "No. 42, Madurai Road, Near Central Bus Stand, Theni, Tamil Nadu 625531",
+      "phone": "+91 77088 78603",
+      "email": "theni@ktechappliances.com",
+      "timings": "Mon - Sun: 9:30 AM – 9:00 PM",
+      "map_link": "https://maps.google.com/?q=Theni+Tamil+Nadu",
+      "image": "assets/storefront-facade.png",
+      "is_hub": 0,
+      "order_num": 1,
+      "created_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "store-paradise",
+      "name": "KTECH – Paradise Appliances",
+      "slug": "paradise-appliances",
+      "city": "Coimbatore",
+      "address": "Shop 18, Cross Cut Road, Gandhipuram, Coimbatore, Tamil Nadu 641012",
+      "phone": "+91 77088 78603",
+      "email": "coimbatore@ktechappliances.com",
+      "timings": "Mon - Sun: 10:00 AM – 9:30 PM",
+      "map_link": "https://maps.google.com/?q=Gandhipuram+Coimbatore",
+      "image": "assets/storefront-facade.png",
+      "is_hub": 0,
+      "order_num": 2,
+      "created_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "store-kps",
+      "name": "KTECH – KPS Home Appliances",
+      "slug": "kps-home-appliances",
+      "city": "Madurai",
+      "address": "104, West Veli Street, Near Railway Junction, Madurai, Tamil Nadu 625001",
+      "phone": "+91 77088 78603",
+      "email": "madurai@ktechappliances.com",
+      "timings": "Mon - Sun: 9:30 AM – 9:00 PM",
+      "map_link": "https://maps.google.com/?q=West+Veli+Street+Madurai",
+      "image": "assets/storefront-facade.png",
+      "is_hub": 0,
+      "order_num": 3,
+      "created_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "store-coimbatore-hub",
+      "name": "KTECH – Coimbatore Factory & Direct Dispatch Hub",
+      "slug": "coimbatore-hub",
+      "city": "Coimbatore",
+      "address": "KTech Manufacturing & Central Dispatch Division, Sathy Road, Coimbatore, Tamil Nadu 641035",
+      "phone": "+91 77088 78603",
+      "email": "sales@ktechappliances.com",
+      "timings": "Mon - Sat: 9:00 AM – 7:00 PM (Direct Wholesale & Dispatch)",
+      "map_link": "https://maps.google.com/?q=Sathy+Road+Coimbatore",
+      "image": "assets/storefront-facade.png",
+      "is_hub": 1,
+      "order_num": 4,
+      "created_at": "2026-11-08 15:05:30"
+    }
+  ]
+}

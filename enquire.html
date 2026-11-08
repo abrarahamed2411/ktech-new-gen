@@ -1,0 +1,176 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Submit a direct product enquiry to KTECH Home Appliances sales and support desk.">
+  <title>Product Enquiry | KTECH Home Appliances</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <style>
+    .enquire-box { max-width: 680px; margin: 0 auto; background: #fff; padding: 40px 35px; border-radius: 24px; border: 1px solid var(--color-border); box-shadow: var(--shadow-card); }
+    .enquire-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+    .enquire-form .full-span { grid-column: 1 / -1; }
+    .enquire-form label { display: block; font-size: 12px; font-weight: 700; color: var(--color-primary-dark); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .enquire-form input, .enquire-form select, .enquire-form textarea { width: 100%; padding: 11px 14px; border-radius: 12px; border: 1px solid #bdded4; background: #fff; font-size: 13.5px; outline-color: var(--color-primary); }
+    .enquire-form textarea { min-height: 110px; resize: vertical; }
+    @media(max-width: 600px) { .enquire-form { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="announcement">Quality kitchen solutions for everyday living · Retail & bulk orders welcome</div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="KTECH Home Appliances">
+        <img src="/assets/ktech-logo.webp" alt="KTECH Home Appliances" class="logo-img" style="height:32px!important;max-height:32px!important;width:auto!important;max-width:110px!important;object-fit:contain!important;display:block!important;" height="32">
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+        <a href="/about-us">About Us</a>
+        <a href="/products">Products</a>
+        <a href="/bulk-solutions">Bulk Solutions</a>
+        <a href="/our-stores">Our Stores</a>
+        <a href="/blogs">Blogs</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-outline btn-small" href="/request-quote">Request Catalogue</a>
+        <a class="btn btn-primary btn-small" href="/request-quote">Get Bulk Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero section-waves">
+      <div class="container centered">
+        <div class="breadcrumbs" style="justify-content:center;">
+          <a href="/">Home</a>
+          <span class="separator">›</span>
+          <span class="current">Enquiry</span>
+        </div>
+        <span class="eyebrow">✦ DIRECT SALES & SUPPORT DESK</span>
+        <h1>Product <em>Enquiry</em></h1>
+        <p>Have questions regarding model availability, spare parts, or retail purchase? Let us know below.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="enquire-box">
+          <h2 style="font-size:22px; margin:0 0 8px; color:var(--color-heading);">Submit Your Enquiry</h2>
+          <p style="font-size:13px; color:var(--color-muted); margin:0;">Our team will review your requirement and connect with you shortly.</p>
+
+          <form id="standalone-enquiry-form" class="enquire-form">
+            <div>
+              <label>Full Name *</label>
+              <input name="name" placeholder="Your Full Name" required>
+            </div>
+            <div>
+              <label>Mobile Number *</label>
+              <input name="phone" type="tel" placeholder="Phone / WhatsApp Number" required>
+            </div>
+            <div>
+              <label>Email Address</label>
+              <input name="email" type="email" placeholder="Email Address">
+            </div>
+            <div>
+              <label>City / Town</label>
+              <input name="city" placeholder="City or Town">
+            </div>
+            <div>
+              <label>Enquiry Type *</label>
+              <select name="enquiryType">
+                <option value="Product Enquiry">Product Enquiry</option>
+                <option value="Retail Purchase">Retail Store Purchase</option>
+                <option value="Dealership Enquiry">Dealership / Reseller</option>
+                <option value="Spare Parts">Spare Parts & Service</option>
+                <option value="General Enquiry">General Enquiry</option>
+              </select>
+            </div>
+            <div>
+              <label>Product Model / Name</label>
+              <input name="product" id="enquiry-product-input" placeholder="e.g. 750W Mixer Grinder">
+            </div>
+            <div class="full-span">
+              <label>Your Message or Requirement *</label>
+              <textarea name="message" placeholder="Please provide details about what you need or questions you have." required></textarea>
+            </div>
+            <div class="full-span" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-top:8px;">
+              <button class="btn btn-primary" id="enquiry-submit-btn" type="submit">Submit Enquiry ↗</button>
+              <a href="https://wa.me/917708878603" target="_blank" class="whatsapp-chat-link" style="margin-top:0;">💬 Quick WhatsApp Enquiry</a>
+            </div>
+          </form>
+          <div class="form-status" id="enquiry-form-status"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/script.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodParam = urlParams.get('product');
+    if (prodParam) {
+      const prodInp = document.getElementById('enquiry-product-input');
+      if (prodInp) prodInp.value = prodParam;
+    }
+
+    const form = document.getElementById('standalone-enquiry-form');
+    if (form) {
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const statusEl = document.getElementById('enquiry-form-status');
+        const submitBtn = document.getElementById('enquiry-submit-btn');
+        const formData = new FormData(form);
+
+        statusEl.className = 'form-status show loading';
+        statusEl.textContent = 'Submitting your enquiry...';
+        submitBtn.disabled = true;
+
+        try {
+          const payload = {
+            name: formData.get('name')?.toString().trim(),
+            phone: formData.get('phone')?.toString().trim(),
+            email: formData.get('email')?.toString().trim(),
+            city: formData.get('city')?.toString().trim(),
+            enquiryType: formData.get('enquiryType')?.toString().trim(),
+            subject: formData.get('product')?.toString().trim() || 'General Product Enquiry',
+            message: formData.get('message')?.toString().trim(),
+            sourceUrl: window.location.href
+          };
+
+          const res = await fetch('/api/enquiries', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const result = await res.json();
+
+          if (res.ok && result.success) {
+            statusEl.className = 'form-status show success';
+            statusEl.innerHTML = `
+              <div>✓ Thank you, <strong>${payload.name}</strong>! Your enquiry has been received. <span class="ref-badge">Ref: ${result.referenceId}</span></div>
+              <div style="margin-top:6px; font-size:12px;">Our team will connect with you via phone or email.</div>
+              <div><a href="${result.whatsappUrl}" target="_blank" class="whatsapp-chat-link">💬 Forward reference to WhatsApp ↗</a></div>
+            `;
+            form.reset();
+          } else {
+            throw new Error(result.error || 'Submission error');
+          }
+        } catch (err) {
+          statusEl.className = 'form-status show error';
+          statusEl.textContent = err.message || 'Error communicating with server.';
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+    }
+  </script>
+</body>
+</html>
+

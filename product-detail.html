@@ -1,0 +1,225 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Product Details | KTECH Home Appliances</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <style>
+    .product-detail-layout { display: grid; grid-template-columns: 1fr 1.15fr; gap: 50px; align-items: start; }
+    .gallery-container { position: sticky; top: 90px; }
+    .main-image-box { width: 100%; height: 420px; border-radius: 20px; border: 1px solid var(--color-border); background: #fff; padding: 20px; box-shadow: var(--shadow-card); display: flex; align-items: center; justify-content: center; }
+    .main-image-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .thumbnail-row { display: flex; gap: 12px; margin-top: 15px; }
+    .thumbnail-item { width: 75px; height: 75px; border-radius: 12px; border: 2px solid var(--color-border); background: #fff; padding: 6px; cursor: pointer; transition: all .2s; }
+    .thumbnail-item.active, .thumbnail-item:hover { border-color: var(--color-primary); }
+    .thumbnail-item img { width: 100%; height: 100%; object-fit: contain; }
+    .sku-badge { font-family: monospace; font-size: 12px; background: #eaf3f0; color: var(--color-primary-dark); padding: 4px 8px; border-radius: 6px; }
+    .feature-bullets { list-style: none; padding: 0; margin: 20px 0; display: grid; gap: 10px; }
+    .feature-bullets li { display: flex; align-items: center; gap: 10px; font-size: 14.5px; color: var(--color-body); }
+    .feature-bullets li:before { content: '✓'; color: var(--color-primary); font-weight: 800; }
+    .spec-table-box { background: #fff; border-radius: 18px; border: 1px solid var(--color-border); overflow: hidden; margin-top: 25px; box-shadow: var(--shadow-card); }
+    .spec-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    .spec-table tr:nth-child(even) { background: #f9fdfb; }
+    .spec-table th, .spec-table td { padding: 12px 18px; text-align: left; border-bottom: 1px solid #eef5f2; }
+    .spec-table th { width: 38%; color: var(--color-primary-dark); font-weight: 700; background: #f0f7f4; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 30px; }
+    @media(max-width: 860px) { .product-detail-layout { grid-template-columns: 1fr; } .gallery-container { position: static; } }
+  </style>
+</head>
+<body>
+  <div class="announcement">Quality kitchen solutions for everyday living · Retail & bulk orders welcome</div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="KTECH Home Appliances">
+        <img src="/assets/ktech-logo.webp" alt="KTECH Home Appliances" class="logo-img" style="height:32px!important;max-height:32px!important;width:auto!important;max-width:110px!important;object-fit:contain!important;display:block!important;" height="32">
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+        <a href="/about-us">About Us</a>
+        <a class="active" href="/products">Products</a>
+        <a href="/bulk-solutions">Bulk Solutions</a>
+        <a href="/our-stores">Our Stores</a>
+        <a href="/blogs">Blogs</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-outline btn-small" href="/request-quote">Request Catalogue</a>
+        <a class="btn btn-primary btn-small" href="/request-quote">Get Bulk Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:40px;">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs" id="detail-breadcrumbs">
+          <a href="/">Home</a>
+          <span class="separator">›</span>
+          <a href="/products">Products</a>
+          <span class="separator">›</span>
+          <span class="current" id="crumb-product-name">Loading...</span>
+        </div>
+
+        <div class="product-detail-layout" id="product-detail-content">
+          <!-- Gallery on Left -->
+          <div class="gallery-container">
+            <div class="main-image-box">
+              <img id="main-product-img" src="/images/10-cookware.jpg" alt="Product Image">
+            </div>
+            <div class="thumbnail-row" id="thumbnail-row"></div>
+          </div>
+
+          <!-- Product Specifications on Right -->
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+              <span class="eyebrow" id="prod-category-badge">KTECH APPLIANCE</span>
+              <span class="sku-badge" id="prod-sku">SKU: KT-000</span>
+            </div>
+            <h1 id="prod-title" style="font-size:clamp(26px,3.2vw,38px); line-height:1.2; margin-bottom:14px; color:var(--color-heading);">
+              Loading product details...
+            </h1>
+            <p id="prod-short-desc" style="font-size:15.5px; color:var(--color-body); line-height:1.6; margin-bottom:20px;">
+              Please wait while we load specifications from database.
+            </p>
+
+            <!-- Conversion Action Buttons -->
+            <div class="button-row" style="margin-bottom:30px;">
+              <button class="btn btn-primary" id="btn-request-quote">Request Quotation ↗</button>
+              <button class="btn btn-outline" id="btn-enquire-now">Enquire Now ↗</button>
+              <a href="https://wa.me/917708878603" target="_blank" class="whatsapp-chat-link" style="margin-top:0;">💬 Chat on WhatsApp</a>
+            </div>
+
+            <!-- Key Features -->
+            <h3 style="font-size:18px; color:var(--color-heading); margin-bottom:10px;">Key Features</h3>
+            <ul class="feature-bullets" id="prod-features"></ul>
+
+            <!-- Technical Specifications Table -->
+            <h3 style="font-size:18px; color:var(--color-heading); margin-top:30px; margin-bottom:10px;">Technical Specifications</h3>
+            <div class="spec-table-box">
+              <table class="spec-table" id="spec-table-body"></table>
+            </div>
+
+            <!-- Full Product Description -->
+            <div style="margin-top:30px;">
+              <h3 style="font-size:18px; color:var(--color-heading); margin-bottom:10px;">Product Overview</h3>
+              <p id="prod-full-desc" style="font-size:14px; color:var(--color-muted); line-height:1.7;"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Products in Category -->
+        <div style="margin-top:80px; padding-top:40px; border-top:1px solid var(--color-border);">
+          <span class="eyebrow">MORE FROM THIS COLLECTION</span>
+          <h2 style="font-size:28px; margin:12px 0 20px;">Related <em>Products</em></h2>
+          <div class="related-grid" id="related-products-grid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/script.js"></script>
+  <script>
+    // Extract slug from URL pathname (e.g. /products/ktech-750w-heavy-duty-mixer-grinder)
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const slug = pathParts[1] || 'ktech-750w-heavy-duty-mixer-grinder';
+
+    async function loadProductDetail() {
+      try {
+        const res = await fetch('/api/products/' + slug);
+        const data = await res.json();
+
+        if (!res.ok || !data.success || !data.product) {
+          document.getElementById('prod-title').textContent = 'Product Not Found';
+          document.getElementById('prod-short-desc').textContent = 'The product you are looking for is currently unavailable or has been moved.';
+          return;
+        }
+
+        const p = data.product;
+        document.title = `${p.name} | KTECH Home Appliances`;
+        document.getElementById('crumb-product-name').textContent = p.name;
+        document.getElementById('prod-title').textContent = p.name;
+        document.getElementById('prod-sku').textContent = `SKU: ${p.sku || 'KT-GEN'}`;
+        document.getElementById('prod-category-badge').textContent = (p.category_name || 'KTECH').toUpperCase();
+        document.getElementById('prod-short-desc').textContent = p.short_description || '';
+        document.getElementById('prod-full-desc').textContent = p.full_description || '';
+
+        // Main Image
+        const mainImg = document.getElementById('main-product-img');
+        const norm = window.normalizeImg || (u => u.startsWith('/') ? u : '/' + u);
+        mainImg.src = norm(p.image);
+        mainImg.alt = p.name;
+
+        // Thumbnails
+        const thumbRow = document.getElementById('thumbnail-row');
+        const gallery = p.gallery && p.gallery.length ? p.gallery : [p.image];
+        thumbRow.innerHTML = gallery.map((img, idx) => `
+          <div class="thumbnail-item ${idx === 0 ? 'active' : ''}" onclick="setMainImage('${norm(img)}', this)">
+            <img src="${norm(img)}" alt="Thumbnail ${idx + 1}">
+          </div>
+        `).join('');
+
+        // Features
+        const featList = document.getElementById('prod-features');
+        if (p.features && Array.isArray(p.features) && p.features.length) {
+          featList.innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
+        } else {
+          featList.innerHTML = `<li>Heavy-duty food-grade build quality</li><li>Uniform heat distribution / High efficiency</li><li>Official KTECH warranty protection</li>`;
+        }
+
+        // Specifications Table
+        const specTable = document.getElementById('spec-table-body');
+        if (p.specifications && typeof p.specifications === 'object') {
+          specTable.innerHTML = Object.entries(p.specifications).map(([k, v]) => `
+            <tr>
+              <th>${k}</th>
+              <td>${v}</td>
+            </tr>
+          `).join('');
+        }
+
+        // Wire Up Buttons
+        document.getElementById('btn-request-quote').onclick = () => openQuoteModal(p.name);
+        document.getElementById('btn-enquire-now').onclick = () => selectProductForEnquiry(p.name);
+
+        // Related Products
+        const relatedGrid = document.getElementById('related-products-grid');
+        if (data.related && data.related.length) {
+          relatedGrid.innerHTML = data.related.map(r => `
+            <article class="category-card">
+              <a href="/products/${r.slug}">
+                <img loading="lazy" src="${norm(r.image)}" alt="${r.name}">
+              </a>
+              <div class="card-bottom">
+                <h3><a href="/products/${r.slug}">${r.name}</a></h3>
+                <a href="#contact" onclick="event.preventDefault(); openQuoteModal('${r.name}')" class="enquire-card-link">Quote ↗</a>
+              </div>
+            </article>
+          `).join('');
+        } else {
+          relatedGrid.innerHTML = '<p style="color:var(--color-muted);">No additional products in this range.</p>';
+        }
+
+      } catch (err) {
+        console.error('Error loading product:', err);
+      }
+    }
+
+    function setMainImage(src, el) {
+      document.getElementById('main-product-img').src = src;
+      document.querySelectorAll('.thumbnail-item').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', loadProductDetail);
+  </script>
+</body>
+</html>
+

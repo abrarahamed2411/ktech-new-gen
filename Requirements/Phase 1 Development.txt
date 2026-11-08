@@ -1,0 +1,1779 @@
+# KTECH Home Appliances — Complete Website Development Requirements
+
+Development specification
+
+Prepared for OpenAI Codex
+
+# Premium Product Catalogue & Enquiry Website
+
+A complete responsive website for KTECH Home Appliances with seven main navigation sections, a structured product catalogue, individual product detail pages, bulk enquiry management, store information, blogs, and a content management dashboard.
+
+## 1. Website structure
+
+The website must work as a product discovery and lead-generation platform, not an e-commerce checkout platform.
+
+Primary customer journey
+
+Home
+
+Categories
+
+Subcategories
+
+Products
+
+Product Details
+
+Request Quote / Enquire
+
+The seven primary navigation items will be Home, Categories, About Us, Bulk Solutions, Our Stores, Blogs, and Contact.
+
+## 2. Approved design direction
+
+Mint, teal, white and deep green
+
+Soft gradients, elegant curves and subtle gold accents
+
+## Beautiful Kitchens.
+
+## Better Living.
+
+Playfair Display headings + DM Sans body
+
+The existing design references use a premium mint-green and white interface, soft shadows, rounded product cards, teal CTA buttons, curved hero artwork, product-led photography, and clean spacing. These will be retained.
+
+The actual product images must be separate assets. No buttons, headings, arrows, or navigation elements should be baked into images; Codex must build them as editable HTML components.
+
+## 3. Recommended technical architecture
+
+For a maintainable production website, I recommend Next.js + TypeScript + custom CSS, with PostgreSQL and Prisma for the catalogue, enquiries, stores, and blogs.
+
+This gives you editable product records, dynamic URLs, a backend enquiry workflow, and a protected admin dashboard without adding online payment functionality.
+
+## 4. Complete Codex development brief
+
+The following specification is designed to be copied directly into Codex. It includes the site architecture, navigation, individual page requirements, products, CSS, functionality, database, and development workflow.
+
+# KTECH HOME APPLIANCES
+
+## Complete Website Development — Master Requirements for OpenAI Codex
+
+### ROLE AND OBJECTIVE
+
+Act as a senior full-stack developer, UI/UX designer, database architect, and technical SEO specialist.
+
+Build a fully functional, production-ready website for **KTECH Home Appliances**, a home appliances, cookware, kitchenware, and bulk gifting brand serving customers in Tamil Nadu and wider Indian markets.
+
+The website must be a premium, modern, responsive, product-catalogue and lead-generation platform.
+
+**This is NOT an e-commerce website.** There must be no Add to Cart, Buy Now, Checkout, Payment Gateway, customer purchasing account, payment screen, or online ordering system.
+
+The only commercial conversion actions must be:
+
+- Request Quote
+- Enquire Now
+
+Other buttons such as View Products, Explore Categories, Read More, Get Directions, and View Details are allowed for navigation and content discovery.
+
+All forms and conversion actions must work. Do not create non-functional UI.
+
+---
+
+# 1. PROJECT REFERENCES
+
+Inspect all files in the existing project before generating new code.
+
+Use the reference design files, if available:
+
+- `Ktech WebDesign .zip`
+- `KTECH_Complete_Website_Template.zip`
+- `KTECH_All_10_Product_Images.zip`
+
+The design archive contains homepage and product-page reference screenshots. Treat them as the primary visual direction.
+
+The earlier HTML/CSS template contains the initial design system. Refactor and improve it where necessary instead of discarding its recognizable look.
+
+The product image archive contains separate category visuals.
+
+**Critical image requirement:** Do not use cropped screenshots of cards, buttons, headings, or other website UI as product photographs. Separate product images from actual HTML interface elements.
+
+Use the official KTECH logo asset provided in the project. Do not redraw, approximate, or invent a new KTECH logo. If the exact official logo file is missing, create a clearly marked placeholder and request the approved asset.
+
+Use existing product imagery whenever suitable. If an asset is missing, preserve a professional placeholder without inventing an official product photograph or specification.
+
+---
+
+# 2. TECHNOLOGY STACK
+
+Use:
+
+- Next.js with App Router
+- React
+- TypeScript
+- Custom CSS with CSS Modules and global design tokens
+- PostgreSQL for production database
+- Prisma ORM
+- Zod for input validation
+- Server Actions or secure API routes for backend operations
+- Secure admin authentication
+- SMTP or a transactional email provider for enquiry notifications
+- A configurable image-storage solution for uploaded media
+- Lucide icons
+- Next.js Image for optimized images
+- ESLint, formatting tools, and automated tests
+
+Do not introduce unnecessary dependencies.
+
+Use environment variables for secrets, database credentials, domain names, business phone numbers, recipient email addresses, and API credentials.
+
+Keep the architecture modular, maintainable, and deployment-ready.
+
+---
+
+# 3. WEBSITE DESIGN SYSTEM
+
+## Brand Style
+
+Premium, clean, elegant, welcoming, product-focused.
+
+The visual style must closely follow the earlier KTECH mint-green and white web designs.
+
+### CSS Colour Tokens
+
+```
+:root {
+  --color-primary: #008E7E;
+  --color-primary-dark: #073C37;
+  --color-primary-soft: #DFF8EF;
+  --color-secondary-bg: #F2FFFA;
+  --color-heading: #102E2B;
+  --color-body: #183B35;
+  --color-muted: #627C75;
+  --color-border: #D7EAE4;
+  --color-accent-gold: #E6B144;
+  --color-white: #FFFFFF;
+
+  --shadow-card:
+    0 14px 38px rgba(12, 89, 77, 0.09);
+
+  --radius-card: 20px;
+  --radius-section: 28px;
+  --radius-button: 50px;
+
+  --container-width: 1200px;
+}
+```
+
+### Typography
+
+- Headings: Playfair Display, with a Georgia fallback.
+- Body content: DM Sans, with a sans-serif fallback.
+- Serif headings combined with crisp sans-serif UI labels.
+- Consistent responsive type sizes using CSS clamp().
+- Readable body text, correct line heights, and appropriate contrast.
+
+### Visual Elements
+
+- Soft mint gradient backgrounds.
+- White cards with subtle borders.
+- Rounded product image containers.
+- Teal buttons with hover states.
+- Curved hero image boundaries.
+- Light mint circular and wave decorations.
+- Subtle gold accents only where aesthetically appropriate.
+- Clean, organized product photography.
+- Generous spacing between sections.
+- Elegant product and article cards.
+- Smooth, subtle transitions.
+- Responsive grid layouts.
+
+Avoid excessive animation and unnecessary visual effects.
+
+### Layout Requirements
+
+- Maximum content width approximately 1200px.
+- Consistent side padding.
+- Desktop: 4-column category grids where appropriate.
+- Tablet: 2-column grids.
+- Mobile: 1–2 columns according to available space.
+- Desktop hero split layout: text on left, product image on right.
+- Mobile hero: vertically stacked.
+- Accessible, keyboard-friendly navigation.
+
+### Image Handling
+
+Use a separate `public/images` asset directory containing subdirectories for:
+
+- brand
+- hero
+- categories
+- subcategories
+- products
+- bulk
+- stores
+- blogs
+- banners
+
+Every image must be used through a reusable image component with proper alt text, responsive sizing, and object-fit settings.
+
+Product images should show products only, without embedded website elements.
+
+---
+
+# 4. PRIMARY NAVIGATION
+
+Header menu:
+
+1. Home
+2. Categories
+3. About Us
+4. Bulk Solutions
+5. Our Stores
+6. Blogs
+7. Contact
+
+The header must contain:
+
+- Official KTECH logo.
+- Desktop navigation.
+- Categories dropdown or mega menu.
+- Search trigger.
+- Request Quote CTA.
+- Mobile hamburger menu.
+- Sticky navigation on scrolling.
+
+The mobile menu must be fully functional, accessible, and easy to close.
+
+Footer must contain:
+
+- Brand introduction.
+- Quick links.
+- Product categories.
+- Store links.
+- Business contact details.
+- Approved social media links.
+- Privacy Policy.
+- Terms of Use.
+- Copyright notice.
+
+All contact details and links must come from configuration or CMS data, not invented values.
+
+---
+
+# 5. COMPLETE WEBSITE URL STRUCTURE
+
+Public routes:
+
+```
+/
+├── /categories
+│   └── /categories/[category-slug]
+│       └── /categories/[category-slug]/[subcategory-slug]
+│
+├── /products
+│   └── /products/[product-slug]
+│
+├── /about-us
+├── /bulk-solutions
+├── /our-stores
+│   └── /our-stores/[store-slug]
+├── /blogs
+│   └── /blogs/[blog-slug]
+├── /contact
+├── /request-quote
+├── /enquire
+├── /privacy-policy
+└── /terms-of-use
+```
+
+Protected admin routes:
+
+```
+/admin
+├── /categories
+├── /subcategories
+├── /products
+├── /enquiries
+├── /quotes
+├── /stores
+├── /blogs
+├── /media
+└── /settings
+```
+
+Use consistent slugs, breadcrumbs, and canonical URLs.
+
+A product should have one canonical product-detail URL. Categories and subcategories should filter or list the relevant products without creating duplicate product-detail pages.
+
+---
+
+# 6. REQUIRED CUSTOMER NAVIGATION FLOW
+
+The complete customer journey must be:
+
+HOME → CATEGORIES → SUBCATEGORIES → PRODUCTS → PRODUCT DETAILS → REQUEST QUOTE / ENQUIRE.
+
+Example:
+
+Home\
+→ Categories\
+→ Cookware\
+→ Stainless Steel Cookware\
+→ Stainless Steel Pressure Cooker\
+→ Individual Product Detail\
+→ Request Quote\
+→ Form Submission\
+→ Success Message\
+→ Admin Notification
+
+Users must also be able to reach products through search, related products, homepage highlights, and category shortcuts.
+
+Do not make users navigate through all hierarchy levels when they already know which product they want.
+
+---
+
+# 7. HOMEPAGE REQUIREMENTS
+
+Build a visually polished homepage with the following sections.
+
+## Section 1 — Header and Hero
+
+Large premium hero.
+
+Left:
+
+- Main headline about premium home appliances and kitchen essentials.
+- Short brand introduction.
+- Explore Categories button.
+- Request Quote button.
+
+Right:
+
+- High-quality KTECH product arrangement image.
+- Curved and decorative mint background.
+- Responsive product image positioning.
+
+Optional rotating hero content can be controlled through the admin dashboard.
+
+Do not autoplay distracting animations.
+
+## Section 2 — Brand Introduction
+
+Heading: Welcome to KTECH Home Appliances.
+
+Explain the brand, product offerings, and commitment to useful household solutions using approved company information.
+
+Include:
+
+- Short introduction.
+- Image or logo artwork.
+- About Us navigation button.
+
+Do not invent founding dates, company milestones, awards, or customer counts.
+
+## Section 3 — Explore Our Categories
+
+Display all active primary product categories.
+
+Each card must contain:
+
+- Category image.
+- Category name.
+- Short description.
+- Explore arrow/link.
+
+Clicking the card opens the category's subcategory page.
+
+## Section 4 — Featured Product Ranges
+
+Display selected product collections with large product photography.
+
+Examples:
+
+- Cookware
+- Mixer & Grinders
+- Non-Stick Cookware
+- LPG Gas Stoves
+- Dinner Sets
+- Electronic Appliances
+
+Show category title and View Range CTA.
+
+## Section 5 — Featured Products
+
+Display products selected by the administrator.
+
+Each product card:
+
+- Product photograph.
+- Product name.
+- Category/subcategory.
+- Short specification or variant.
+- View Details button.
+- Enquire button.
+
+Do not display fabricated prices, discounts, or ratings.
+
+## Section 6 — Bulk and Corporate Solutions
+
+Introduce the bulk gifting service.
+
+Highlight:
+
+- Corporate gifting.
+- Festival gifting.
+- Employee gifting.
+- Promotional gifting.
+- Bulk product supply.
+- Custom packaging and branding where offered.
+
+Use suitable product/gifting images.
+
+CTA: Request Bulk Quote.
+
+## Section 7 — Stores
+
+Introduce KTECH retail stores.
+
+Display store imagery, city/location, and View Stores CTA.
+
+Display actual store locations maintained in the CMS.
+
+## Section 8 — Blogs and Product Guides
+
+Display latest published articles with:
+
+- Blog image.
+- Category.
+- Title.
+- Short excerpt.
+- Publication date.
+- Read More link.
+
+## Section 9 — Contact / Enquiry CTA
+
+Simple enquiry-oriented CTA section.
+
+Heading example:\
+Looking for the Right Kitchen Appliance?
+
+Buttons:
+
+- Enquire Now
+- Request Quote
+
+## Section 10 — Footer
+
+Include all required navigation, business information, social media, and legal links.
+
+---
+
+# 8. CATEGORIES AND SUBCATEGORIES
+
+Develop a proper hierarchical catalogue.
+
+The following is the initial proposed structure based on KTECH's previously discussed product ranges. Keep all content editable and allow categories to be renamed, removed, reordered, or extended through the admin dashboard.
+
+## A. Cookware
+
+Subcategories:
+
+- Stainless Steel Cookware
+- Pressure Cookers
+- Casseroles
+- Cookware Sets
+- Pots and Pans
+
+## B. Non-Stick Cookware
+
+Subcategories:
+
+- Frying Pans
+- Non-Stick Tawa
+- Non-Stick Kadai
+- Non-Stick Cookware Sets
+
+## C. Mixer & Grinders
+
+Subcategories:
+
+- Mixer Grinders
+- Wet Grinders
+- Mixer Jars and Accessories
+
+## D. LPG Gas Stoves
+
+Subcategories:
+
+- Two-Burner Gas Stoves
+- Three-Burner Gas Stoves
+- Four-Burner Gas Stoves
+
+## E. Electronic Appliances
+
+Subcategories:
+
+- Electric Kettles
+- Induction Cooktops
+- Electric Irons
+- Heaters
+- Fans
+- Other Electrical Appliances
+
+## F. Dinnerware & Kitchenware
+
+Subcategories:
+
+- Dinner Sets
+- Serving Bowls
+- Drinkware
+- Tumblers
+- Water Jugs
+- Lunch Boxes
+- Serving Accessories
+
+## G. Combo Gift Sets
+
+Subcategories:
+
+- Kitchen Combo Sets
+- Cookware Gift Sets
+- Home Appliance Gift Sets
+- Festival Gift Sets
+
+## H. Bulk & Corporate Gifts
+
+Subcategories:
+
+- Corporate Gift Sets
+- Employee Gifting
+- Festival Gifting
+- Promotional Gifting
+- Custom Gift Hampers
+
+These are catalogue seeds, not assertions that every item is currently sold. Make unavailable or unverified ranges unpublished until confirmed.
+
+A category can have zero or many subcategories.
+
+Each subcategory can have zero or many products.
+
+Products may belong to multiple applicable collections, but must have one primary category and subcategory.
+
+Avoid duplicate catalogue records.
+
+---
+
+# 9. CATEGORY LIST PAGE
+
+URL: `/categories`
+
+Display:
+
+- Page banner.
+- Page heading.
+- Introduction.
+- Category cards.
+- Category images.
+- Category names.
+- Short descriptions.
+- Number of published products, if available from the database.
+- Breadcrumbs.
+
+Cards should be responsive, accessible, and clickable.
+
+Clicking Cookware opens `/categories/cookware`.
+
+---
+
+# 10. CATEGORY DETAIL PAGE
+
+Example URL: `/categories/cookware`
+
+Display:
+
+- Category heading.
+- Category hero image.
+- Description.
+- Breadcrumbs.
+- Subcategory cards.
+- Featured products belonging to that category.
+- Enquiry CTA.
+
+Subcategory cards must include a thumbnail, title, and View Range action.
+
+Example:\
+Cookware → Pressure Cookers.
+
+---
+
+# 11. SUBCATEGORY DETAIL PAGE
+
+Example URL:\
+`/categories/cookware/pressure-cookers`
+
+Display:
+
+- Breadcrumbs.
+- Subcategory title and description.
+- Product count.
+- Product listing.
+- Search within listing.
+- Filters.
+- Sorting.
+- Product grid.
+- Pagination or load-more.
+- Relevant enquiry CTA.
+
+Filters must be based on real stored product attributes.
+
+Potential filters include:
+
+- Product type.
+- Material.
+- Capacity.
+- Size.
+- Colour.
+- Model.
+- Availability of variants.
+
+Do not show meaningless or empty filter controls.
+
+Sort options may include:
+
+- Featured.
+- Name A–Z.
+- Recently added.
+
+Product cards should be visually consistent.
+
+Clicking View Details must open that product's unique URL.
+
+---
+
+# 12. ALL PRODUCTS PAGE
+
+URL: `/products`
+
+Offer searchable catalogue discovery independent of category navigation.
+
+Include:
+
+- Search.
+- Categories.
+- Subcategories.
+- Dynamic attribute filters.
+- Sorting.
+- Product cards.
+- Product count.
+- Pagination.
+- Empty-state UI.
+
+Search must match stored product names, models, categories, descriptions, and relevant keywords.
+
+Do not expose unpublished products.
+
+---
+
+# 13. PRODUCT DETAILS PAGE
+
+URL: `/products/[product-slug]`
+
+This page is a primary conversion page.
+
+## Product Image Gallery
+
+Provide:
+
+- Large main product image.
+- Thumbnail gallery.
+- Multiple images per product.
+- Image zoom or fullscreen preview.
+- Mobile swipe support.
+- Consistent image aspect ratio.
+- Proper image loading and fallback.
+
+No product image should contain embedded website buttons or layout text.
+
+## Product Information
+
+Display:
+
+- Product name.
+- Product model/SKU.
+- Category.
+- Subcategory.
+- Short description.
+- Full description.
+- Key features.
+- Technical specifications.
+- Available variants.
+- Material.
+- Capacity/size, where applicable.
+- Product care information, where supplied.
+
+Specifications must be defined dynamically and should differ by product type.
+
+For example, gas-stove specifications should not be forced onto a dinnerware product.
+
+## Product CTAs
+
+Primary:\
+Request Quote
+
+Secondary:\
+Enquire Now
+
+Clicking either should open a modal or dedicated form with the selected product automatically filled.
+
+## Additional Sections
+
+- Product overview.
+- Key features.
+- Technical specifications.
+- Product images.
+- Product care guidance, if available.
+- Related products.
+- Explore related category.
+- Enquiry CTA.
+
+Do not include:
+
+- Buy Now.
+- Add to Cart.
+- Payment methods.
+- Delivery payment calculator.
+- Checkout.
+- Unverified customer ratings.
+
+Pricing should remain hidden unless explicitly authorized by the business.
+
+---
+
+# 14. ENQUIRY FUNCTIONALITY
+
+Enquire Now must work throughout the website.
+
+It must be available from:
+
+- Header where appropriate.
+- Product cards.
+- Product details.
+- Category CTA sections.
+- Homepage CTA.
+- Contact page.
+- Floating enquiry entry point if useful.
+
+## Enquiry Fields
+
+Required:
+
+- Full Name.
+- Mobile Number.
+- Enquiry Type.
+- Message or Requirement.
+
+Optional:
+
+- Email Address.
+- City.
+- Selected Category.
+- Selected Product.
+- Product Model.
+- Quantity.
+
+Automatically attach the product ID, product name, and page context when a product enquiry is initiated.
+
+Enquiry Type options:
+
+- Product Enquiry
+- General Enquiry
+- Store Enquiry
+- Other
+
+## Enquiry Submission Workflow
+
+1. User clicks Enquire Now.
+2. Form opens with applicable product details prefilled.
+3. User enters contact details.
+4. Client-side validation runs.
+5. Server-side validation runs.
+6. Submission is saved in the database.
+7. Email notification is attempted.
+8. User receives clear success confirmation.
+9. Admin can review and manage the enquiry.
+
+Use reliable error handling.
+
+A notification failure must not silently lose a successfully saved enquiry.
+
+Add bot and spam protection, reasonable rate limiting, and privacy consent.
+
+Never claim a submission succeeded if database persistence failed.
+
+---
+
+# 15. REQUEST QUOTE FUNCTIONALITY
+
+Build a separate quote request workflow.
+
+Quote sources:
+
+- Product detail pages.
+- Bulk Solutions.
+- Homepage.
+- General Request Quote CTA.
+
+## Quote Form Fields
+
+Required:
+
+- Full Name.
+- Mobile Number.
+- Customer Type.
+- Requirement.
+- Quantity or Estimated Quantity, when applicable.
+
+Optional:
+
+- Company Name.
+- Email.
+- City.
+- State.
+- Product.
+- Category.
+- Preferred Contact Method.
+- Required By Date.
+- Budget Range.
+- Customization Requirements.
+
+Customer Type:
+
+- Individual
+- Retailer
+- Distributor
+- Corporate
+- Institution
+- Other
+
+For bulk requests, ask additional relevant business fields.
+
+## Quote Workflow
+
+1. User selects Request Quote.
+2. Selected product or bulk category is prefilled.
+3. Form is submitted.
+4. Data is validated and stored.
+5. Unique public reference ID is generated.
+6. Admin receives notification.
+7. Customer sees a confirmation with reference ID.
+8. Admin reviews and updates the request status.
+
+Suggested statuses:
+
+- New
+- Contacted
+- In Progress
+- Quoted
+- Closed
+
+Do not implement payment collection or online order processing.
+
+---
+
+# 16. ABOUT US PAGE
+
+URL: `/about-us`
+
+Sections:
+
+- Hero banner.
+- Brand introduction.
+- KTECH company story.
+- Mission and vision.
+- Core product ranges.
+- Product quality and customer support information.
+- Brand imagery.
+- Retail presence.
+- Bulk solution introduction.
+- Contact CTA.
+
+Only use verified company facts and approved claims.
+
+Do not invent manufacturing capabilities, certifications, founding years, awards, metrics, or other business claims.
+
+---
+
+# 17. BULK SOLUTIONS PAGE
+
+URL: `/bulk-solutions`
+
+This is an important lead-generation page.
+
+## Hero
+
+Heading example:\
+Bulk Gifting & Corporate Solutions
+
+Subheading focused on kitchenware, home appliances, and practical gifts for businesses and events.
+
+CTA: Request Bulk Quote.
+
+## Service Sections
+
+### Corporate Gifting
+
+For companies, employees, customers, and business partners.
+
+### Festival & Occasion Gifting
+
+For seasonal celebrations, special events, and company occasions.
+
+### Employee Rewards & Recognition
+
+Practical gift sets for employee appreciation and incentives.
+
+### Wholesale & Bulk Supply
+
+Product enquiries for retailers, distributors, and bulk buyers.
+
+### Custom Packaging and Branding
+
+Show available customization options without promising unsupported services.
+
+## Bulk Quantity
+
+Support flexible quantities and bulk requests, including enquiries for 50 to 500+ units, subject to confirmation by KTECH.
+
+Do not display unapproved minimum-order policies or guaranteed wholesale prices.
+
+## Product Presentation
+
+Show gift-oriented category cards with:
+
+- Product/gift image.
+- Service heading.
+- Description.
+- Request Quote CTA.
+
+## Process Section
+
+1. Share Requirement.
+2. Select Products.
+3. Receive Quotation.
+4. Confirm Details with the KTECH team.
+
+The website itself does not take payment or place orders.
+
+## Bulk Quote Form
+
+Required:
+
+- Contact Name.
+- Company/Organization.
+- Mobile Number.
+- Product or Gifting Requirement.
+- Quantity.
+- Delivery City/State.
+- Expected Date, if known.
+
+Optional:
+
+- Email.
+- Budget per Unit.
+- Branding Requirement.
+- Packaging Requirement.
+- Notes.
+
+Use an attachment field only if secure upload storage, file limits, and validation are implemented.
+
+---
+
+# 18. OUR STORES PAGE
+
+URL: `/our-stores`
+
+Display only verified, active stores.
+
+## Main Page
+
+- Page title.
+- Brand retail introduction.
+- Store imagery.
+- Location filter.
+- Store cards.
+- City and address.
+- Phone number, if verified.
+- Opening hours, if verified.
+- Get Directions link.
+- View Store Details button.
+
+Stores should be editable from admin.
+
+## Store Detail Page
+
+Each store:
+
+- Store name.
+- Full address.
+- City.
+- State.
+- PIN code.
+- Contact phone.
+- Business hours.
+- Store images.
+- Google Maps link/embed using verified coordinates or URLs.
+- Contact CTA.
+
+Do not invent map coordinates, addresses, business hours, or directions.
+
+Include a dedicated empty state for stores that have not yet been verified or published.
+
+---
+
+# 19. BLOGS PAGE
+
+URL: `/blogs`
+
+Build a complete editorial blog system.
+
+## Blog Listing
+
+- Blog banner.
+- Category filters.
+- Search.
+- Featured article.
+- Recent articles.
+- Responsive article cards.
+- Pagination.
+
+Article card:
+
+- Featured image.
+- Category.
+- Title.
+- Summary.
+- Publication date.
+- Estimated reading time.
+- Read More.
+
+## Individual Blog Page
+
+URL: `/blogs/[blog-slug]`
+
+Include:
+
+- Title.
+- Featured image.
+- Publication date.
+- Category.
+- Article content.
+- Structured headings.
+- Related articles.
+- Relevant product links.
+- Enquiry CTA.
+
+Suggested blog topics:
+
+- Choosing the Right Pressure Cooker.
+- Caring for Non-Stick Cookware.
+- Mixer Grinder Buying Guide.
+- LPG Gas Stove Maintenance.
+- Corporate Kitchenware Gifting Ideas.
+- Kitchen Appliance Care Tips.
+
+These are topic suggestions. Do not create misleading technical claims.
+
+All posts must be CMS-managed and support draft/published states.
+
+---
+
+# 20. CONTACT PAGE
+
+URL: `/contact`
+
+Include:
+
+- Contact banner.
+- General enquiry form.
+- Approved business contact information.
+- Click-to-call links.
+- Business email, if available.
+- Store/location information.
+- Verified map.
+- Social links.
+- Business hours, if provided.
+
+Contact form fields:
+
+- Name.
+- Mobile.
+- Email (optional).
+- Subject.
+- Message.
+
+Save submissions in the database and notify the administrator.
+
+---
+
+# 21. SEARCH FUNCTIONALITY
+
+Global product search must be available.
+
+Search suggestions may show:
+
+- Product names.
+- Categories.
+- Subcategories.
+
+Pressing Enter opens filtered search results.
+
+Search must:
+
+- Handle typos gracefully where reasonably possible.
+- Support empty results.
+- Exclude unpublished products.
+- Work on mobile.
+- Be keyboard-accessible.
+
+---
+
+# 22. ADMIN DASHBOARD
+
+Create a protected administrative system with secure sign-in and role-based permissions as needed.
+
+## Dashboard Overview
+
+Show:
+
+- Total published products.
+- Categories.
+- Subcategories.
+- New enquiries.
+- New quote requests.
+- Published blogs.
+- Active stores.
+
+## Category Management
+
+Admin can:
+
+- Add.
+- Edit.
+- Delete or archive.
+- Publish/unpublish.
+- Upload image.
+- Set slug.
+- Reorder.
+- Update SEO metadata.
+
+## Subcategory Management
+
+Admin can:
+
+- Create subcategory.
+- Assign parent category.
+- Add images and descriptions.
+- Reorder.
+- Publish/unpublish.
+
+## Product Management
+
+Admin can:
+
+- Add products.
+- Edit products.
+- Archive products.
+- Upload multiple product images.
+- Assign category and subcategory.
+- Set model/SKU.
+- Set specifications.
+- Manage variants.
+- Mark featured.
+- Publish/unpublish.
+- Configure SEO.
+
+Ensure one product may be surfaced in multiple collections without duplicating its core record.
+
+## Enquiry Management
+
+Admin can:
+
+- View enquiries.
+- Search and filter.
+- View source page/product.
+- Update status.
+- Add internal notes.
+- Export CSV.
+
+## Quote Management
+
+Admin can:
+
+- View quote requests.
+- Filter by product and status.
+- See quantities and customer types.
+- Add internal notes.
+- Update status.
+- Export CSV.
+
+## Store Management
+
+Admin can add and edit stores, verified contact details, map links, opening hours, and store photos.
+
+## Blog Management
+
+Admin can create, edit, draft, publish, and unpublish articles and featured images.
+
+## Media Library
+
+Admin can upload, select, reuse, and remove images with appropriate access controls.
+
+## Site Settings
+
+Editable:
+
+- Business phone.
+- Enquiry recipient email.
+- Business email.
+- WhatsApp number, if used.
+- Social URLs.
+- Footer text.
+- SEO defaults.
+- Homepage banners and highlighted products.
+
+Use secure authentication, authorization, and session handling for every admin action.
+
+---
+
+# 23. DATABASE REQUIREMENTS
+
+Design a normalized database using Prisma.
+
+Include models for:
+
+- User
+- Role or Permission
+- Category
+- Subcategory
+- Product
+- ProductVariant
+- ProductImage
+- ProductSpecification
+- ProductCategoryRelation, if needed
+- Enquiry
+- QuoteRequest
+- Store
+- Blog
+- BlogCategory
+- MediaAsset
+- SiteSetting
+- ActivityLog, if practical
+
+Use unique IDs and appropriate relationships.
+
+All public content should have relevant created/updated timestamps and publication status fields.
+
+## Product Fields
+
+- id
+- name
+- slug
+- sku
+- shortDescription
+- fullDescription
+- primaryCategoryId
+- primarySubcategoryId
+- specifications
+- featuredImage
+- galleryImages
+- variants
+- featured
+- status
+- seoTitle
+- seoDescription
+- createdAt
+- updatedAt
+
+## Enquiry Fields
+
+- id
+- referenceId
+- name
+- phone
+- email
+- city
+- enquiryType
+- categoryId
+- productId
+- message
+- sourceUrl
+- consent
+- status
+- createdAt
+- updatedAt
+
+## Quote Request Fields
+
+- id
+- referenceId
+- customerName
+- companyName
+- phone
+- email
+- customerType
+- categoryId
+- productId
+- quantity
+- budgetRange
+- deliveryLocation
+- requiredDate
+- customizationNotes
+- status
+- createdAt
+- updatedAt
+
+Validate data at the application boundary and enforce integrity constraints in the database.
+
+---
+
+# 24. REUSABLE COMPONENTS
+
+Create reusable components rather than repeating page markup.
+
+Required components:
+
+- Header
+- MobileMenu
+- MegaMenu
+- Footer
+- HeroSection
+- SectionHeader
+- Breadcrumbs
+- CategoryCard
+- SubcategoryCard
+- ProductCard
+- ProductGrid
+- ProductGallery
+- ProductSpecifications
+- ProductFilters
+- SearchBar
+- SearchResults
+- EnquiryModal
+- QuoteModal
+- BulkQuoteForm
+- StoreCard
+- BlogCard
+- Pagination
+- LoadingSkeleton
+- EmptyState
+- ErrorState
+- SuccessMessage
+- AdminSidebar
+- AdminDataTable
+- ImageUploader
+
+Avoid duplicate CSS.
+
+Use a consistent spacing, typography, and component system.
+
+---
+
+# 25. RESPONSIVE DESIGN
+
+Support:
+
+- Mobile devices from 320px.
+- Standard mobile widths.
+- Tablets.
+- Laptops.
+- Large desktops.
+
+Requirements:
+
+- No horizontal overflow.
+- Mobile-friendly menus.
+- Responsive hero image placement.
+- Legible typography.
+- Touch-friendly buttons.
+- Proper product gallery sizing.
+- Sticky navigation.
+- Accessible modals.
+- Responsive data tables in admin.
+- Full-width mobile enquiry forms.
+
+Do not let hero images, logos, or product card images overlap text.
+
+---
+
+# 26. ANIMATIONS AND MICROINTERACTIONS
+
+Use restrained animations:
+
+- Smooth hover transitions.
+- Subtle card elevation.
+- Button hover states.
+- Animated menu opening.
+- Modal transitions.
+- Section reveals where appropriate.
+
+Respect `prefers-reduced-motion`.
+
+Avoid heavy animation libraries unless necessary.
+
+---
+
+# 27. SEO REQUIREMENTS
+
+Implement:
+
+- Unique metadata per page.
+- Dynamic title and description.
+- Canonical URLs.
+- Open Graph metadata.
+- XML sitemap.
+- Robots.txt.
+- Product structured data, using supported factual properties.
+- Article structured data.
+- LocalBusiness structured data only with verified store details.
+- Breadcrumb structured data.
+- Correct heading hierarchy.
+- Descriptive image alt text.
+- Search-engine-friendly category URLs.
+- Redirect handling for changed slugs.
+
+Exclude admin pages, unpublished records, and internal search results from indexing as appropriate.
+
+---
+
+# 28. PERFORMANCE
+
+Optimize for:
+
+- Image loading.
+- LCP.
+- CLS.
+- INP.
+- Minimal client-side JavaScript.
+- Static/server rendering where appropriate.
+- Lazy loading below-the-fold media.
+- Responsive images.
+- Web font efficiency.
+- Database query efficiency.
+- Pagination of large product lists.
+
+Use appropriate caching while ensuring newly published content and updated catalogue records appear correctly.
+
+---
+
+# 29. ACCESSIBILITY AND SECURITY
+
+Follow WCAG 2.2 AA practices where practical.
+
+Include:
+
+- Keyboard navigation.
+- Accessible labels.
+- Visible focus indicators.
+- Adequate contrast.
+- Screen-reader support.
+- Semantic HTML.
+- Escape-key modal handling.
+- Correct form errors.
+- Mobile accessible controls.
+
+Security:
+
+- Server-side authorization.
+- Secure password/session handling.
+- CSRF protections where applicable.
+- Server-side form validation.
+- Rate limiting.
+- Spam protection.
+- Safe file uploads.
+- Protected environment secrets.
+- Safe database queries.
+- No exposed admin credentials.
+- No unsafe HTML rendering of blog content.
+
+Store customer data only for valid business purposes. Provide a privacy policy and data handling controls appropriate to the deployed business.
+
+---
+
+# 30. DESIGN REFERENCE AND BRANDING RESTRICTIONS
+
+The existing KTECH design references are visual guidance.
+
+Preserve:
+
+- White and mint background.
+- Deep teal headings and CTA buttons.
+- Premium serif headlines.
+- Product-led layouts.
+- Curved image masks.
+- Rounded cards.
+- Subtle shadows.
+- Soft mint gradient sections.
+- Clean product detail layouts.
+
+Do not:
+
+- Use a screenshot as a whole website section.
+- Put baked-in buttons inside product images.
+- Add shopping cart functionality.
+- Add checkout.
+- Add fake product prices.
+- Add fake reviews or business statistics.
+- Invent store information.
+- Invent product specifications.
+- Use unofficial replacement logos.
+- Fill the site with repetitive dummy sections.
+
+A polished, trustworthy layout is more important than adding unnecessary decoration.
+
+---
+
+# 31. CONTENT MANAGEMENT RULES
+
+All important content must be editable through CMS/admin:
+
+- Homepage hero copy.
+- Homepage banners.
+- Featured collections.
+- Featured products.
+- Categories.
+- Subcategories.
+- Product content.
+- Bulk solutions content.
+- Stores.
+- Blogs.
+- Business contact details.
+- SEO metadata.
+
+Use seed content only where supported by supplied material.
+
+Mark unverified content as draft.
+
+Provide a seed script with sample catalogue structure, but prevent draft sample data from being published accidentally.
+
+---
+
+# 32. TESTING REQUIREMENTS
+
+Include automated and manual verification for:
+
+- Navigation.
+- Category hierarchy.
+- Subcategory hierarchy.
+- Product listing.
+- Product detail pages.
+- Product search.
+- Filters.
+- Responsive layout.
+- Enquiry form validation.
+- Quote form validation.
+- Submission persistence.
+- Email notification handling.
+- Admin authentication.
+- Admin CRUD.
+- Image uploading.
+- Blog publishing.
+- Store publishing.
+- SEO metadata.
+- Empty states.
+- Invalid URLs.
+- Mobile accessibility.
+
+Use the project's supported test tooling.
+
+Test both successful and failed form submissions.
+
+Provide test commands in the README.
+
+---
+
+# 33. REQUIRED DELIVERABLES
+
+Deliver:
+
+1. Complete working source code.
+2. Responsive homepage.
+3. Category listing and category detail pages.
+4. Subcategory detail pages.
+5. All-products page.
+6. Individual product-detail template.
+7. About Us page.
+8. Bulk Solutions page.
+9. Our Stores listing and detail pages.
+10. Blogs listing and article pages.
+11. Contact page.
+12. Enquiry and quotation system.
+13. Secure admin dashboard.
+14. Database schema and migrations.
+15. Media management.
+16. SEO implementation.
+17. Automated tests.
+18. Environment-variable example file.
+19. Setup and deployment instructions.
+20. README with implementation and configuration details.
+
+Do not claim a feature is complete until it works.
+
+---
+
+# 34. IMPLEMENTATION PHASES
+
+Follow this sequence.
+
+## Phase 1 — Project Audit and Foundation
+
+- Inspect provided project files.
+- Identify reusable assets.
+- Set up Next.js, TypeScript, and styles.
+- Implement design tokens.
+- Build shared layout, header, footer, and navigation.
+- Establish database schema and environment configuration.
+
+## Phase 2 — Homepage and Catalogue
+
+- Build homepage.
+- Create category listings.
+- Create subcategory pages.
+- Create products listing.
+- Create product detail pages.
+- Add search, filters, breadcrumbs, and responsive product galleries.
+
+## Phase 3 — Company and Content Pages
+
+- About Us.
+- Bulk Solutions.
+- Our Stores.
+- Blogs.
+- Contact.
+
+## Phase 4 — Lead Generation
+
+- Enquiry forms.
+- Request Quote forms.
+- Database submissions.
+- Validation.
+- Email notifications.
+- Reference IDs.
+- Success and error handling.
+
+## Phase 5 — Administration
+
+- Authentication.
+- Admin dashboard.
+- Category management.
+- Subcategory management.
+- Product management.
+- Lead management.
+- Store management.
+- Blog management.
+- Media management.
+
+## Phase 6 — QA, SEO, and Deployment
+
+- Functional tests.
+- Mobile tests.
+- Accessibility checks.
+- SEO.
+- Performance.
+- Build verification.
+- Deployment documentation.
+
+---
+
+# 35. CODING AND DELIVERY INSTRUCTIONS
+
+Important:
+
+- Begin by auditing the current repository and explaining the implementation plan briefly.
+- Then implement the website in the actual project files, not merely describe it.
+- Reuse supplied image assets and CSS direction.
+- Do not overwrite user-supplied images or approved branding unnecessarily.
+- Work in manageable phases.
+- Run build, lint, and applicable tests after each phase.
+- Fix actual errors before moving on.
+- Maintain a checklist of completed features.
+- Do not use dead buttons, dummy links, or fake working forms.
+- If an external secret or business detail is unavailable, implement the configuration interface and document what needs to be supplied.
+- Never commit credentials.
+- Provide database migration and seed instructions.
+- Do not change the site's business model into e-commerce.
+- Keep Request Quote and Enquire Now as the only commercial conversion actions.
+
+## FINAL ACCEPTANCE CRITERIA
+
+A customer must be able to:
+
+1. Open the homepage.
+2. Browse categories.
+3. Choose a subcategory.
+4. View a product listing.
+5. Open an individual product details page.
+6. View product photographs and specifications.
+7. Submit an enquiry or quote request.
+8. Receive a visible success confirmation.
+
+An administrator must be able to:
+
+1. Sign in securely.
+2. Add a category.
+3. Add a subcategory.
+4. Add a product with images.
+5. Publish that product.
+6. See it appear correctly in the public catalogue.
+7. Receive and manage customer enquiries.
+8. Receive and manage quote requests.
+9. Publish store information.
+10. Publish and manage blog articles.
+
+The website must work across desktop, tablet, and mobile.
+
+**Start with Phase 1. Continue through all phases using this specification as the source of truth.**
+
+## 5. How to start development in Codex
+
+Use the following sequence in your project.
+
+Step 1 — Create your project folder
+
+Create a folder named `ktech-website` in your development environment.
+
+Step 2 — Add the existing design references
+
+Include the earlier homepage/product design ZIP, the HTML/CSS template, the product images, and the official brand logo.
+
+Step 3 — Open Codex
+
+In the project terminal, run:
+
+```
+codex
+```
+
+Copy the complete master requirements above into Codex.
+
+Step 4 — Build and verify phase by phase
+
+Have Codex complete the foundation and catalogue first, then the enquiry backend, CMS, and testing.
+
+## 6. Information to configure before launching
+
+These should remain editable rather than guessed during development.
+
+| Requirement       | Configuration needed                                  |
+| ----------------- | ----------------------------------------------------- |
+| Official logo     | Original approved KTECH logo asset                    |
+| Products          | Exact names, models, specifications and photos        |
+| Stores            | Verified addresses, contact numbers and opening hours |
+| Enquiry recipient | Official business email                               |
+| WhatsApp          | Official KTECH WhatsApp number                        |
+| Bulk quantities   | Confirmed minimum orders and policies                 |
+| Legal pages       | Approved privacy policy and terms                     |
+| Domain            | Final production domain and hosting                   |
+
+Recommended development priority: Finish the complete Home → Categories → Subcategories → Products → Product Details → Enquiry flow first. Once that journey works end to end, the remaining pages can reuse the same design system and components without creating inconsistencies.
+
+This specification preserves the previously established KTECH mint-green website direction and keeps Request Quote and Enquire Now as the core lead-generation actions.&#x20;

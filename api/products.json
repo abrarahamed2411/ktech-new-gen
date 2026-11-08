@@ -1,0 +1,430 @@
+{
+  "success": true,
+  "count": 11,
+  "products": [
+    {
+      "id": "prod-11",
+      "name": "KTECH Insulated Stainless Steel Casserole & Hotpot Serving Set",
+      "slug": "ktech-insulated-casserole-hotpot-serving-set",
+      "sku": "KT-DS-HOTPOT",
+      "category_id": "dining-serving",
+      "subcategory_id": null,
+      "short_description": "Double-wall PUF insulated food warmer casserole with twist-lock lid keeps rotis, rice, and curries hot for 6+ hours.",
+      "full_description": "Designed for gracious everyday serving and family feasts. High-grade mirror-polished stainless steel interior is completely non-reactive and odorless, while the stylish ribbed exterior brings elegance to any dining table.",
+      "image": "/images/11-dining-serving.jpg",
+      "gallery": [
+        "/images/11-dining-serving.jpg",
+        "/images/04-dinner-set.jpg"
+      ],
+      "specifications": {
+        "Capacity": "2500 ml & 1500 ml Double Pack",
+        "Insulation": "High-Density Polyurethane Foam (PUF) Thermal Barrier",
+        "Interior": "Food Grade SS 304 Stainless Steel Inner Lining",
+        "Thermal Retention": "Keeps Food Hot or Cold for up to 6 Hours",
+        "Locking": "Ergonomic Twist & Lock Airtight Lid with Steam Escape Guard"
+      },
+      "features": [
+        "Dual-Tone Ribbed Body for Grip & Style",
+        "Airtight Twist Lock Lid Prevents Spills",
+        "100% Odor-Free Food Grade Stainless Core",
+        "Preserves Freshness, Taste and Aroma"
+      ],
+      "variants": [
+        "Pastel Teal 2500ml",
+        "Pastel Teal 1500ml",
+        "Twin Pack (1500ml + 2500ml)"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 16:35:32",
+      "updated_at": "2026-11-08 16:35:32"
+    },
+    {
+      "id": "prod-01",
+      "name": "KTECH 750W Heavy Duty Mixer Grinder with 3 SS Jars",
+      "slug": "ktech-750w-heavy-duty-mixer-grinder",
+      "sku": "KT-MG-750",
+      "category_id": "mixer-grinders",
+      "subcategory_id": null,
+      "short_description": "Pure 100% copper motor mixer grinder with 3 heavy stainless steel jars for wet, dry and chutney grinding.",
+      "full_description": "Designed for South Indian cooking and heavy-duty daily tasks, the KTECH 750W Mixer Grinder features an overload protector, air-channel cooling technology, and precision-engineered razor-sharp stainless steel blades.",
+      "image": "/images/01-mixer-grinder.jpg",
+      "gallery": [
+        "/images/01-mixer-grinder.jpg",
+        "/images/09-festival-gifting-mixer.jpg"
+      ],
+      "specifications": {
+        "Motor Power": "750 Watts Pure Copper Motor",
+        "Speed Settings": "3 Speed Control with Incher Pulse Function",
+        "Jars Included": "3 SS Jars (1.5L Wet, 1.0L Dry, 0.4L Chutney)",
+        "Blade Material": "Food Grade Stainless Steel 304",
+        "Safety": "Overload Protector with Reset Button",
+        "Warranty": "2 Years Manufacturer Warranty"
+      },
+      "features": [
+        "100% Copper Heavy Duty Motor",
+        "Air Channel Cooling Technology",
+        "Leakproof Flow-Breaker Jars",
+        "Anti-Skid Vacuum Rubber Feet"
+      ],
+      "variants": [
+        "Teal & White",
+        "Gloss Black",
+        "Silver Grey"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-02",
+      "name": "KTECH 3-Piece Granite Finish Non-Stick Cookware Set",
+      "slug": "ktech-3-piece-granite-non-stick-cookware-set",
+      "sku": "KT-NS-3PC",
+      "category_id": "nonstick",
+      "subcategory_id": null,
+      "short_description": "Tough 5-layer scratch resistant granite non-stick set including Kadai with glass lid, Dosa Tawa, and Fry Pan.",
+      "full_description": "Cook delicious meals with minimal oil. The KTECH Granite Cookware collection features an induction and gas compatible spiral base, heavy-gauge virgin aluminium body, and soft-touch heat-resistant bakelite handles.",
+      "image": "/images/02-non-stick-cookware.jpg",
+      "gallery": [
+        "/images/02-non-stick-cookware.jpg",
+        "/images/10-cookware.jpg"
+      ],
+      "specifications": {
+        "Coating": "5-Layer German Greblon Non-Stick Coating",
+        "Thickness": "3.2 mm Heavy Gauge Body",
+        "Base": "Induction & Gas Stove Compatible",
+        "Items Included": "24cm Kadai + Glass Lid, 28cm Dosa Tawa, 24cm Fry Pan",
+        "PFOA Free": "100% PFOA & Heavy Metal Free",
+        "Warranty": "1 Year Warranty"
+      },
+      "features": [
+        "5-Layer Scratch Resistant Coating",
+        "Requires 80% Less Cooking Oil",
+        "Ergonomic Soft-Touch Handles",
+        "Induction & Gas Friendly Base"
+      ],
+      "variants": [
+        "Granite Grey",
+        "Granite Red",
+        "Granite Green"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-03",
+      "name": "KTECH 3-Burner Toughened Glass Top LPG Gas Stove",
+      "slug": "ktech-3-burner-toughened-glass-lpg-gas-stove",
+      "sku": "KT-GS-3B",
+      "category_id": "gas-stoves",
+      "subcategory_id": null,
+      "short_description": "7mm shatterproof toughened black glass cooktop with high thermal efficiency forged brass burners.",
+      "full_description": "Engineered for Indian homes and modern kitchen countertops. Features spill-proof stainless steel drip trays, high-precision brass gas valves for smooth flame regulation, and sturdy powder-coated pan supports.",
+      "image": "/images/03-lpg-gas-stove.jpg",
+      "gallery": [
+        "/images/03-lpg-gas-stove.jpg"
+      ],
+      "specifications": {
+        "Burners": "3 Tri-Pin Forged Brass Burners (1 Small, 1 Medium, 1 Jumbo)",
+        "Top Material": "7mm Thermal Shatterproof Toughened Glass",
+        "Ignition": "Manual Rotary High-Precision Valve",
+        "Body": "Rust-Resistant Powder Coated Base Frame",
+        "Pan Support": "Heavy-Gauge Euro-Coated Pan Supports",
+        "Certification": "ISI Certified for LPG"
+      },
+      "features": [
+        "High Thermal Efficiency Brass Burners",
+        "Easy-Clean Shatterproof Glass Top",
+        "360° Revolving Gas Inlet Nozzle",
+        "Sturdy Non-Slip Rubber Base"
+      ],
+      "variants": [
+        "Black Glass 3-Burner",
+        "Black Glass 2-Burner",
+        "Black Glass 4-Burner"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-04",
+      "name": "KTECH 32-Piece Stainless Steel Royal Family Dinner Set",
+      "slug": "ktech-32-piece-stainless-steel-royal-dinner-set",
+      "sku": "KT-DS-32",
+      "category_id": "dinner-sets",
+      "subcategory_id": null,
+      "short_description": "Complete 32-piece food-grade mirror polish stainless steel dinner service set for 6 persons.",
+      "full_description": "Crafted from premium 200/304 series heavy-gauge stainless steel with high mirror luster. Resistant to corrosion and dents, perfect for everyday family dining as well as wedding and housewarming gifts.",
+      "image": "/images/04-dinner-set.jpg",
+      "gallery": [
+        "/images/04-dinner-set.jpg"
+      ],
+      "specifications": {
+        "Material": "Food Grade Heavy Gauge Stainless Steel",
+        "Finish": "Ultra Mirror Polish",
+        "Set Count": "32 Pieces (6 Dinner Plates, 6 Side Plates, 12 Bowls, 6 Tumblers, 2 Serving Spoons)",
+        "Dishwasher Safe": "100% Dishwasher Safe",
+        "Packaging": "Deluxe Printed Gift Box"
+      },
+      "features": [
+        "Rust-Proof Food Grade Steel",
+        "Smooth Rolled Edges for Comfort",
+        "Ideal for Gifting & Everyday Meals",
+        "Stackable Space-Saving Design"
+      ],
+      "variants": [
+        "32-Piece Set",
+        "24-Piece Set",
+        "51-Piece Grand Set"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-05",
+      "name": "KTECH 5-Piece Kitchen Combo Gift Set in Presentation Box",
+      "slug": "ktech-5-piece-kitchen-combo-gift-set",
+      "sku": "KT-CG-5PC",
+      "category_id": "combo-gifts",
+      "subcategory_id": null,
+      "short_description": "Curated combination of insulated casserole, non-stick tawa, saucepan, and kitchen essentials.",
+      "full_description": "An all-in-one kitchen starter combo designed for celebrations, wedding gifts, and promotional gifting. Includes essential daily cookware and insulated dining ware made with top-tier materials.",
+      "image": "/images/05-combo-gift-set.jpg",
+      "gallery": [
+        "/images/05-combo-gift-set.jpg"
+      ],
+      "specifications": {
+        "Set Contents": "1x Insulated Hotpack, 1x Non-Stick Tawa, 1x SS Saucepan, 2x Serving Accessories",
+        "Material Combination": "Stainless Steel & Non-Stick Aluminium",
+        "Packaging": "High-Durability Laminated Gift Box",
+        "Customization": "Corporate Branding & Custom Sleeves Available for Bulk Orders"
+      },
+      "features": [
+        "Ready-to-Gift Luxury Packaging",
+        "Practical Everyday Kitchen Mix",
+        "Lightweight Yet Sturdy Build",
+        "Direct Factory Wholesale Pricing"
+      ],
+      "variants": [
+        "Standard 5-Piece",
+        "Deluxe 7-Piece"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-06",
+      "name": "KTECH 2000W Preset Induction Cooktop & 1.8L Electric Kettle",
+      "slug": "ktech-2000w-induction-cooktop-electric-kettle",
+      "sku": "KT-EA-2000",
+      "category_id": "appliances",
+      "subcategory_id": null,
+      "short_description": "High-speed electromagnetic induction cooktop with Indian preset menus and rapid-boil cordless electric kettle.",
+      "full_description": "Save cooking gas and cut boiling time in half with this energy-efficient duo. The induction cooktop features touch control with auto-shutoff safety, paired with a food-grade 1.8L stainless steel auto-cut electric kettle.",
+      "image": "/images/06-electronic-appliance.jpg",
+      "gallery": [
+        "/images/06-electronic-appliance.jpg"
+      ],
+      "specifications": {
+        "Induction Power": "2000 Watts Fast Heating",
+        "Presets": "8 Indian Cooking Menu Presets (Dosa, Roti, Milk, Curry, etc.)",
+        "Kettle Capacity": "1.8 Litres SS 304 Interior",
+        "Safety": "Voltage Fluctuation Protection & Dry-Boil Auto Cutoff",
+        "Cord Length": "1.2 Metres Heavy Duty Copper Cord"
+      },
+      "features": [
+        "Dual High-Utility Appliance Combo",
+        "Fast Heating with 90% Thermal Transfer",
+        "Cool-Touch Exterior on Kettle",
+        "Child Lock & Timer on Induction"
+      ],
+      "variants": [
+        "Induction + Kettle Set",
+        "Induction Solo",
+        "Kettle Solo"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-07",
+      "name": "KTECH 5L Tri-Ply Stainless Steel Pressure Cooker (Inner Lid)",
+      "slug": "ktech-5l-tri-ply-stainless-steel-pressure-cooker",
+      "sku": "KT-PC-SS5",
+      "category_id": "pressure-cookers",
+      "subcategory_id": null,
+      "short_description": "3-layer clad stainless steel and aluminium core pressure cooker for 20% faster and safe cooking.",
+      "full_description": "Crafted with a sandwich of SS 304 interior, aluminium core, and magnetic SS 430 exterior base. Eliminates hot spots, retains vitamins, and handles pressure with a precision weight valve and gasket release system.",
+      "image": "/images/07-pressure-cooker.jpg",
+      "gallery": [
+        "/images/07-pressure-cooker.jpg",
+        "/images/10-cookware.jpg"
+      ],
+      "specifications": {
+        "Capacity": "5.0 Litres (Available in 2L, 3L, 5L, 7.5L)",
+        "Construction": "Tri-Ply Base to Rim (SS 304 + Alu Core + SS 430)",
+        "Lid Type": "Inner Lid Safety Locking System",
+        "Base": "Induction, Gas, Ceramic & Electric Cooktop Compatible",
+        "Safety Devices": "Lead-Free Safety Valve, Precision Vent Weight, Gasket Release"
+      },
+      "features": [
+        "Tri-Ply Base to Rim Uniform Heating",
+        "Zero Food Burning / Sticking",
+        "Heavy Gauge Ergonomic Stay-Cool Handles",
+        "5 Years Manufacturer Replacement Warranty"
+      ],
+      "variants": [
+        "3 Litre",
+        "5 Litre",
+        "7.5 Litre"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-08",
+      "name": "KTECH Executive Corporate Gifting Box with Custom Insignia",
+      "slug": "ktech-executive-corporate-gifting-box",
+      "sku": "KT-BG-CORP",
+      "category_id": "corporate-gifting",
+      "subcategory_id": null,
+      "short_description": "Premium curated executive kitchenware boxes designed for employee rewards, clients, and VIP gifting.",
+      "full_description": "From Diwali corporate hampers to festive annual bonuses, KTECH supplies ready-to-dispatch gift sets directly from our Coimbatore hub. Custom branding, corporate logo engraving, and special packaging options available for orders of 50+ units.",
+      "image": "/images/08-corporate-gifting-boxes.jpg",
+      "gallery": [
+        "/images/08-corporate-gifting-boxes.jpg",
+        "/images/05-combo-gift-set.jpg"
+      ],
+      "specifications": {
+        "Min Order Quantity": "50 Units for Custom Branding",
+        "Customization": "Laser Logo Engraving, Custom Outer Sleeve, Greeting Card",
+        "Dispatch Lead Time": "3-7 Business Days across South India",
+        "Packaging": "Rigid Magnetic Flip Box with Velvet / Satin Insert",
+        "GST Invoice": "B2B GST Compliant Invoicing Provided"
+      },
+      "features": [
+        "Factory Direct Volume Pricing",
+        "Dedicated Corporate Account Manager",
+        "PAN India Safe Courier Dispatch",
+        "Highest Quality Food Grade Standards"
+      ],
+      "variants": [
+        "Gold Tier Hamper",
+        "Silver Tier Hamper",
+        "Custom Configuration"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-09",
+      "name": "KTECH Festive Celebration Kitchen Gift Set with Mixer & Pan",
+      "slug": "ktech-festive-celebration-kitchen-gift-set",
+      "sku": "KT-FG-FEST",
+      "category_id": "festival-gifting",
+      "subcategory_id": null,
+      "short_description": "Complete festival gift bundle featuring copper motor mixer grinder and multi-purpose non-stick pan.",
+      "full_description": "Celebrate Pongal, Diwali, and milestone celebrations with a practical, high-value gift that every household cherishes. Packed in festive vibrant graphics with tamper-evident sealing.",
+      "image": "/images/09-festival-gifting-mixer.jpg",
+      "gallery": [
+        "/images/09-festival-gifting-mixer.jpg",
+        "/images/01-mixer-grinder.jpg"
+      ],
+      "specifications": {
+        "Bundle Contents": "1x KTECH 500W/750W Mixer, 1x Granite Tawa, 1x Recipe Book",
+        "Packaging": "Celebration Box with Handle",
+        "Bulk Available": "Volume supply for cooperatives, retail chains and associations",
+        "Warranty": "Individual Product Warranty Cards Included"
+      },
+      "features": [
+        "High Perceived Gift Value",
+        "Long Lasting Household Utility",
+        "Factory Direct Price Advantage",
+        "Quick Turnaround on Bulk Dispatches"
+      ],
+      "variants": [
+        "Festival Standard",
+        "Festival Premium"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    },
+    {
+      "id": "prod-10",
+      "name": "KTECH Professional 5-Piece Tri-Ply Stainless Steel Cookware Collection",
+      "slug": "ktech-professional-tri-ply-stainless-steel-cookware-collection",
+      "sku": "KT-CW-TRIPLY",
+      "category_id": "cookware",
+      "subcategory_id": null,
+      "short_description": "Chef-grade 3-layer stainless steel cookware ensemble: Kadai, Saucepan, Casserole, Fry Pan, and Steam Basket.",
+      "full_description": "The pinnacle of KTECH cookware craftsmanship. Whole-body 3-ply construction ensures zero hotspots, uniform heat conduction, and a lifelong mirror stainless finish. Induction compatible with cast stainless stay-cool riveted handles.",
+      "image": "/images/10-cookware.jpg",
+      "gallery": [
+        "/images/10-cookware.jpg",
+        "/images/07-pressure-cooker.jpg",
+        "/images/02-non-stick-cookware.jpg"
+      ],
+      "specifications": {
+        "Construction": "3-Ply Full Body (SS 304 Food Grade + Heavy Aluminium Core + SS 430 Magnetic Base)",
+        "Handles": "Heavy Cast Stainless Steel Riveted Handles",
+        "Lids": "Shatter-Resistant Tempered Glass with Steam Vent",
+        "Compatibility": "Induction, Gas, Radiant, Oven Safe up to 250°C",
+        "Pieces": "5 Essential Cookware Vessels with 3 Matching Lids"
+      },
+      "features": [
+        "Even Heat Distribution Across Bottom & Sides",
+        "Zero Hot Spots & Minimal Oil Requirement",
+        "Dishwasher Safe & Acid/Salt Corrosion Proof",
+        "10 Years Comprehensive Manufacturer Warranty"
+      ],
+      "variants": [
+        "5-Piece Master Set",
+        "3-Piece Essential Set"
+      ],
+      "featured": 1,
+      "status": "published",
+      "seo_title": null,
+      "seo_description": null,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>KTECH Administration Dashboard</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <style>
+    body { background: #f4f9f7; }
+    .admin-header { background: var(--color-primary-dark); color: #fff; padding: 16px 0; }
+    .admin-nav { display: flex; justify-content: space-between; align-items: center; }
+    .admin-tabs { display: flex; gap: 10px; margin: 25px 0; border-bottom: 2px solid var(--color-border); padding-bottom: 10px; }
+    .admin-tab { padding: 9px 18px; border-radius: 10px; font-weight: 700; font-size: 13.5px; cursor: pointer; border: none; background: #fff; color: var(--color-body); border: 1px solid var(--color-border); }
+    .admin-tab.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; margin-bottom: 30px; }
+    .stat-card { background: #fff; padding: 22px; border-radius: 18px; border: 1px solid var(--color-border); box-shadow: var(--shadow-card); }
+    .stat-card strong { display: block; font-size: 28px; color: var(--color-primary); margin-top: 4px; }
+    .data-table-container { background: #fff; border-radius: 18px; border: 1px solid var(--color-border); box-shadow: var(--shadow-card); overflow-x: auto; }
+    .data-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px; }
+    .data-table th { background: #f0f7f4; color: var(--color-primary-dark); padding: 14px 18px; font-weight: 700; border-bottom: 1px solid var(--color-border); }
+    .data-table td { padding: 14px 18px; border-bottom: 1px solid #f0f4f2; color: var(--color-body); }
+    .badge { display: inline-block; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
+    .badge-new { background: #e6f9f2; color: var(--color-primary); border: 1px solid #99e8d4; }
+    .badge-quote { background: #fff3db; color: #a36f00; border: 1px solid #ffe1a6; }
+  </style>
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container admin-nav">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="/assets/ktech-logo.webp" alt="KTECH" style="height:26px; filter:brightness(0) invert(1);">
+        <strong style="font-size:15px; letter-spacing:0.04em;">COMMERCIAL ADMINISTRATION PORTAL</strong>
+      </div>
+      <div>
+        <a href="/" class="btn btn-small btn-outline" style="color:#fff; border-color:rgba(255,255,255,.4); background:transparent;">View Public Site ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" style="padding:30px 0 60px;">
+    <!-- Metric Stat Badges -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span style="font-size:12px; font-weight:700; color:var(--color-muted); text-transform:uppercase;">Total Enquiries</span>
+        <strong id="stat-enquiries">-</strong>
+      </div>
+      <div class="stat-card">
+        <span style="font-size:12px; font-weight:700; color:var(--color-muted); text-transform:uppercase;">Bulk Quote Requests</span>
+        <strong id="stat-quotes">-</strong>
+      </div>
+      <div class="stat-card">
+        <span style="font-size:12px; font-weight:700; color:var(--color-muted); text-transform:uppercase;">Active Products</span>
+        <strong id="stat-products">-</strong>
+      </div>
+      <div class="stat-card">
+        <span style="font-size:12px; font-weight:700; color:var(--color-muted); text-transform:uppercase;">Categories</span>
+        <strong id="stat-categories">-</strong>
+      </div>
+    </div>
+
+    <!-- Tab Buttons -->
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('enquiries')">Customer Enquiries (<span id="tab-count-enq">0</span>)</button>
+      <button class="admin-tab" onclick="switchTab('quotes')">Quotation Requests (<span id="tab-count-quo">0</span>)</button>
+      <button class="admin-tab" onclick="switchTab('products')">Live Products (<span id="tab-count-prod">0</span>)</button>
+    </div>
+
+    <!-- Enquiries View -->
+    <div id="view-enquiries" class="data-table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Reference ID</th>
+            <th>Name & Phone</th>
+            <th>Subject / Product</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="enquiries-tbody">
+          <tr><td colspan="6" style="text-align:center; padding:30px;">Loading enquiries...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Quotes View -->
+    <div id="view-quotes" class="data-table-container" style="display:none;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Reference ID</th>
+            <th>Customer & Company</th>
+            <th>Mobile</th>
+            <th>Product & Quantity</th>
+            <th>Destination</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="quotes-tbody">
+          <tr><td colspan="6" style="text-align:center; padding:30px;">Loading quotations...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Products View -->
+    <div id="view-products" class="data-table-container" style="display:none;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>SKU</th>
+            <th>Category</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="products-tbody">
+          <tr><td colspan="5" style="text-align:center; padding:30px;">Loading catalogue...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.getElementById('view-enquiries').style.display = tab === 'enquiries' ? 'block' : 'none';
+      document.getElementById('view-quotes').style.display = tab === 'quotes' ? 'block' : 'none';
+      document.getElementById('view-products').style.display = tab === 'products' ? 'block' : 'none';
+    }
+
+    async function loadAdminData() {
+      // 1. Enquiries
+      try {
+        const res = await fetch('/api/enquiries');
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('stat-enquiries').textContent = data.count || 0;
+          document.getElementById('tab-count-enq').textContent = data.count || 0;
+          const tbody = document.getElementById('enquiries-tbody');
+          if (data.enquiries.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px; color:#888;">No customer enquiries yet.</td></tr>';
+          } else {
+            tbody.innerHTML = data.enquiries.map(e => `
+              <tr>
+                <td><span class="badge badge-new">${e.reference_id}</span></td>
+                <td><strong>${e.name}</strong><br><a href="tel:${e.phone}" style="color:var(--color-primary); font-size:12px;">${e.phone}</a></td>
+                <td>${e.subject || '-'}</td>
+                <td style="max-width:320px; font-size:12.5px;">${e.message}</td>
+                <td style="font-size:12px; color:#888;">${new Date(e.created_at).toLocaleDateString()}</td>
+                <td><a href="https://wa.me/${e.phone.replace(/[^0-9]/g, '')}" target="_blank" class="btn btn-outline btn-small" style="padding:4px 10px; font-size:11px;">WhatsApp ↗</a></td>
+              </tr>
+            `).join('');
+          }
+        }
+      } catch (err) {}
+
+      // 2. Quotes
+      try {
+        const res = await fetch('/api/quotes');
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('stat-quotes').textContent = data.count || 0;
+          document.getElementById('tab-count-quo').textContent = data.count || 0;
+          const tbody = document.getElementById('quotes-tbody');
+          if (data.quotes.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px; color:#888;">No bulk quote requests yet.</td></tr>';
+          } else {
+            tbody.innerHTML = data.quotes.map(q => `
+              <tr>
+                <td><span class="badge badge-quote">${q.reference_id}</span></td>
+                <td><strong>${q.customer_name}</strong><br><small style="color:#666;">${q.company_name || q.customer_type}</small></td>
+                <td><a href="tel:${q.phone}" style="color:var(--color-primary); font-size:12px;">${q.phone}</a></td>
+                <td><strong>${q.quantity || 'Bulk'}</strong><br><small style="color:#666;">${q.customization_notes || 'Standard'}</small></td>
+                <td style="font-size:12.5px;">${q.delivery_location || 'South India'}</td>
+                <td style="font-size:12px; color:#888;">${new Date(q.created_at).toLocaleDateString()}</td>
+              </tr>
+            `).join('');
+          }
+        }
+      } catch (err) {}
+
+      // 3. Products
+      try {
+        const res = await fetch('/api/products');
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('stat-products').textContent = data.count || 0;
+          document.getElementById('tab-count-prod').textContent = data.count || 0;
+          const tbody = document.getElementById('products-tbody');
+          tbody.innerHTML = data.products.map(p => `
+            <tr>
+              <td><img src="${(p.image && p.image.startsWith('/')) ? p.image : '/' + (p.image || 'images/10-cookware.jpg')}" style="width:40px; height:40px; object-fit:contain; border-radius:6px; background:#fff; border:1px solid #ddd;"></td>
+              <td><strong>${p.name}</strong></td>
+              <td><code>${p.sku || '-'}</code></td>
+              <td>${p.category_name || '-'}</td>
+              <td><span class="badge badge-new">Live</span></td>
+            </tr>
+          `).join('');
+        }
+      } catch (err) {}
+
+      // 4. Categories count
+      try {
+        const res = await fetch('/api/categories');
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('stat-categories').textContent = data.count || 0;
+        }
+      } catch (err) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', loadAdminData);
+  </script>
+</body>
+</html>
+

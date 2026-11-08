@@ -1,0 +1,128 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Locate KTECH retail outlets and our central factory dispatch hub in Coimbatore, Theni, and Madurai.">
+  <title>Our Retail Stores & Factory Hub | KTECH Home Appliances</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <style>
+    .store-card { background: #fff; border-radius: 20px; border: 1px solid var(--color-border); padding: 28px 25px; box-shadow: var(--shadow-card); display: flex; flex-direction: column; justify-content: space-between; transition: transform .2s ease; }
+    .store-card:hover { transform: translateY(-4px); }
+    .store-badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .badge-retail { background: #e8faf3; color: var(--color-primary); }
+    .badge-hub { background: #fff3db; color: #b07800; border: 1px solid #ffd88a; }
+  </style>
+</head>
+<body>
+  <div class="announcement">Quality kitchen solutions for everyday living · Retail & bulk orders welcome</div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="KTECH Home Appliances">
+        <img src="/assets/ktech-logo.webp" alt="KTECH Home Appliances" class="logo-img" style="height:32px!important;max-height:32px!important;width:auto!important;max-width:110px!important;object-fit:contain!important;display:block!important;" height="32">
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/categories">Categories</a>
+        <a href="/about-us">About Us</a>
+        <a href="/products">Products</a>
+        <a href="/bulk-solutions">Bulk Solutions</a>
+        <a class="active" href="/our-stores">Our Stores</a>
+        <a href="/blogs">Blogs</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-outline btn-small" href="/request-quote">Request Catalogue</a>
+        <a class="btn btn-primary btn-small" href="/request-quote">Get Bulk Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero section-waves">
+      <div class="container">
+        <div class="breadcrumbs">
+          <a href="/">Home</a>
+          <span class="separator">›</span>
+          <span class="current">Our Stores</span>
+        </div>
+        <span class="eyebrow">✦ RETAIL NETWORK & DISPATCH</span>
+        <h1>Visit Our <em>Retail Stores</em></h1>
+        <p>Experience KTECH products in person at our authorized retail showrooms or connect with our Coimbatore Central Dispatch Hub for volume orders.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="store-grid" id="stores-container" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+          <div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--color-muted);">
+            Loading store locations from database...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map & Wholesale Contact Strip -->
+    <section class="section section-waves" style="background:#f2fffa; border-top:1px solid var(--color-border); padding:65px 0;">
+      <div class="container split">
+        <div>
+          <span class="eyebrow">CENTRAL LOGISTICS INQUIRY</span>
+          <h2 style="font-size:32px; margin:12px 0;">Looking for Dealership or <em>Direct Dispatch?</em></h2>
+          <p>Interested in becoming an authorized KTECH retail distributor or placing bulk corporate orders? Contact our dispatch headquarters in Coimbatore.</p>
+          <div style="margin-top:20px;">
+            <a href="/contact" class="btn btn-primary">Connect with Logistics Desk ↗</a>
+          </div>
+        </div>
+        <div>
+          <img src="/assets/storefront-facade.png" alt="KTECH Storefront" style="width:100%; border-radius:20px; box-shadow:var(--shadow-card);">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="/script.js"></script>
+  <script>
+    // Load stores dynamically from SQLite
+    async function loadStores() {
+      const container = document.getElementById('stores-container');
+      try {
+        const res = await fetch('/api/stores');
+        const data = await res.json();
+        if (data.success && data.stores) {
+          container.innerHTML = data.stores.map((s, idx) => `
+            <article class="store-card">
+              <div>
+                <span class="store-badge ${s.is_hub ? 'badge-hub' : 'badge-retail'}">
+                  ${s.is_hub ? '★ Central Dispatch Hub' : 'Retail Outlet 0' + (idx + 1)}
+                </span>
+                <h3 style="margin:0 0 10px; font-size:20px; color:var(--color-heading);">${s.name}</h3>
+                <p style="font-size:13.5px; color:var(--color-body); line-height:1.6; margin-bottom:15px;">
+                  📍 ${s.address}
+                </p>
+                <div style="font-size:13px; color:var(--color-muted); line-height:1.8;">
+                  <div><strong>🕒 Hours:</strong> ${s.timings}</div>
+                  <div><strong>📞 Phone:</strong> <a href="tel:${s.phone.replace(/[^0-9]/g, '')}" style="color:var(--color-primary);">${s.phone}</a></div>
+                  <div><strong>✉ Email:</strong> <a href="mailto:${s.email}" style="color:var(--color-primary);">${s.email}</a></div>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:24px; padding-top:16px; border-top:1px solid #eef5f2;">
+                <a href="${s.map_link}" target="_blank" rel="noopener" style="font-size:13px; font-weight:700; color:var(--color-primary);">Get Directions ↗</a>
+                <a href="/contact" onclick="event.preventDefault(); selectProductForEnquiry('Store: ${s.name}');" class="btn btn-outline btn-small">Enquire ↗</a>
+              </div>
+            </article>
+          `).join('');
+        }
+      } catch (err) {
+        console.warn('Stores API error:', err);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadStores);
+  </script>
+</body>
+</html>
+

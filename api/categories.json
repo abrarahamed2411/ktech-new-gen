@@ -1,0 +1,127 @@
+{
+  "success": true,
+  "count": 11,
+  "categories": [
+    {
+      "id": "cookware",
+      "name": "Cookware",
+      "slug": "cookware",
+      "description": "Tri-Ply and heavy gauge food-grade stainless steel cookware designed for uniform heat distribution and lasting durability.",
+      "image": "/images/10-cookware.jpg",
+      "featured": 1,
+      "order_num": 1,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "nonstick",
+      "name": "Non-Stick Cookware",
+      "slug": "non-stick-cookware",
+      "description": "Multi-layer granite and scratch-resistant non-stick fry pans, kadai, and dosa tawas with ergonomic cool-touch handles.",
+      "image": "/images/02-non-stick-cookware.jpg",
+      "featured": 1,
+      "order_num": 2,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "gas-stoves",
+      "name": "LPG Gas Stoves",
+      "slug": "lpg-gas-stoves",
+      "description": "High-thermal efficiency 2, 3 and 4 burner gas stoves with shatterproof toughened glass tops and heavy brass burners.",
+      "image": "/images/03-lpg-gas-stove.jpg",
+      "featured": 1,
+      "order_num": 3,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "mixer-grinders",
+      "name": "Mixer & Grinders",
+      "slug": "mixer-grinders",
+      "description": "Powerful 750W to 1000W 100% copper motor mixer grinders with heavy-gauge stainless steel flow-breaker jars.",
+      "image": "/images/01-mixer-grinder.jpg",
+      "featured": 1,
+      "order_num": 4,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "appliances",
+      "name": "Electronic Appliances",
+      "slug": "electronic-appliances",
+      "description": "Energy-saving electric kettles, induction cooktops, food processors and modern electrical kitchen aids.",
+      "image": "/images/06-electronic-appliance.jpg",
+      "featured": 1,
+      "order_num": 5,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "dining-serving",
+      "name": "Dining & Serving",
+      "slug": "dining-serving",
+      "description": "Insulated casseroles, hotpot serving containers, tableware, and food warmers for elegant home dining.",
+      "image": "/images/11-dining-serving.jpg",
+      "featured": 1,
+      "order_num": 6,
+      "created_at": "2026-11-08 16:35:32",
+      "updated_at": "2026-11-08 16:35:32"
+    },
+    {
+      "id": "dinner-sets",
+      "name": "Dinner Sets",
+      "slug": "dinner-sets",
+      "description": "Elegant stainless steel family dinner sets, serving bowls, drinkware, and dining tableware sets.",
+      "image": "/images/04-dinner-set.jpg",
+      "featured": 1,
+      "order_num": 7,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "combo-gifts",
+      "name": "Combo Gift Sets",
+      "slug": "combo-gift-sets",
+      "description": "Curated home and kitchenware combination sets packed in premium gift-ready presentation boxes.",
+      "image": "/images/05-combo-gift-set.jpg",
+      "featured": 1,
+      "order_num": 8,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "pressure-cookers",
+      "name": "Pressure Cookers",
+      "slug": "pressure-cookers",
+      "description": "Precision safety engineered inner and outer lid pressure cookers in heavy-gauge stainless steel and hard anodized aluminium.",
+      "image": "/images/07-pressure-cooker.jpg",
+      "featured": 1,
+      "order_num": 9,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "corporate-gifting",
+      "name": "Corporate & Bulk Gifting",
+      "slug": "corporate-gifting",
+      "description": "Custom-branded executive kitchenware and appliance gift boxes for businesses, festivals, and institutions.",
+      "image": "/images/08-corporate-gifting-boxes.jpg",
+      "featured": 1,
+      "order_num": 10,
+      "created_at": "2026-11-08 15:05:29",
+      "updated_at": "2026-11-08 15:05:29"
+    },
+    {
+      "id": "festival-gifting",
+      "name": "Festival Celebration Sets",
+      "slug": "festival-gifting",
+      "description": "High-demand celebration combo packs for Diwali, Pongal, weddings, and institutional employee gifting.",
+      "image": "/images/09-festival-gifting-mixer.jpg",
+      "featured": 1,
+      "order_num": 11,
+      "created_at": "2026-11-08 15:05:30",
+      "updated_at": "2026-11-08 15:05:30"
+    }
+  ]
+}
