@@ -1,8 +1,10 @@
 {
-  "name": "ktech-website",
+  "name": "ktech-new-gen",
   "version": "1.0.0",
   "description": "KTECH Home Appliances - Responsive Website & Server",
-  "main": "server.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
