@@ -7,3 +7,4 @@ module.exports = (req, res) => {
   if (req.method === 'OPTIONS') return res.status(204).end();
   res.status(200).json(data);
 };
+
