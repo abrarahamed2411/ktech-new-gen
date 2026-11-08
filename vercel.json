@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "name": "ktech-new-gen",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/api/categories", "destination": "/api/categories.json" },
