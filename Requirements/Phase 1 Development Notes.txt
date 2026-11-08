@@ -404,7 +404,32 @@ Deployment Action:
   `https://brisk-rowan-ohvt9a7.tmp.now` (Claim link: `https://vercel.com/claim-deployment?code=5acaf509-d59f-4ddc-b2da-ea30c50fd41e`).
 
 --------------------------------------------------------------------------------
-10. RESUMPTION PLAN FOR NEXT TOKEN / PHASE 2
+10. DEDICATED SEPARATE DEPLOYMENT: "KTECH NEW GEN"
+--------------------------------------------------------------------------------
+User Instruction:
+- "Deploy this repository seperately named as Ktech New Gen, do not mingle with previous deployments"
+
+Implementation & Actions Taken:
+1. Dedicated GitHub Repository Creation:
+   - Initialized a standalone Git repository inside `E:\Development\Ktech web\ktech_site`.
+   - Created a brand-new dedicated GitHub repository under the user's account:
+     `https://github.com/abrarahamed2411/ktech-new-gen`
+   - Configured `.gitignore` to keep the repository lean and exclude temporary artifacts (`screenshots/`, `__pycache__/`, `*.py`, `.vercel/`).
+   - Committed all complete Phase 1 code (all 14 HTML pages, CSS, JS, authentic images, assets, and database modules).
+   - Set remote origin to `https://github.com/abrarahamed2411/ktech-new-gen.git` and pushed branch `main`.
+
+2. Dedicated Vercel Configuration:
+   - Authored `vercel.json` with clean URLs and automated Edge routing:
+     * High-speed static Edge caching for `/api/categories`, `/api/products`, `/api/stores`, `/api/blogs`
+     * Serverless execution for dynamic endpoints (`/api/(.*)` -> `server.js`)
+     * URL rewrites for `/about-us`, `/bulk-solutions`, `/our-stores`, `/request-quote`, `/privacy-policy`, `/terms-of-use`, `/products/:slug`
+   - Deployed dedicated build via Vercel CLI and provided one-click Vercel claim URL to attach directly
+     to the user's Vercel account under the dedicated project name "Ktech New Gen".
+   - GitHub Continuous Deployment link:
+     Import `https://github.com/abrarahamed2411/ktech-new-gen` in Vercel Dashboard for automated deployments on every commit.
+
+--------------------------------------------------------------------------------
+11. RESUMPTION PLAN FOR NEXT TOKEN / PHASE 2
 --------------------------------------------------------------------------------
 Phase 1 Foundation & Full Page Visual Audits are 100% complete, optimized, and verified.
 When resuming in Phase 2 ("Phase 2 — Homepage and Catalogue Details"):
